@@ -26,6 +26,9 @@
 積極的に生活習慣の改善を目指したい時。
 
 ## 設計書
+[ER図](https://drive.google.com/file/d/1PCIYB6NpYjyqNfEGEdgHdSoFVCdchUH7/view?usp=sharing)
+[テーブル定義書](https://docs.google.com/spreadsheets/d/15H_XkBTF-vyjiU3UI-M9G1MYdNzfo3DB/edit?usp=sharing&ouid=107445791759866897904&rtpof=true&sd=true)
+[詳細設計](https://docs.google.com/spreadsheets/d/1BwnBSym2892xmp8qFrdr5-a40sJLn4XQ/edit?usp=sharing&ouid=107445791759866897904&rtpof=true&sd=true)
 
 
 ## チャレンジ要素一覧
