@@ -30,7 +30,5 @@ Rails.application.routes.draw do
     resources :courses, only: [:index]
     resources :entry_courses, only: [:index, :create, :update]
     resources :course_results, only: [:show, :edit, :update]
-
-
   end
 end
