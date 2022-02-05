@@ -1,0 +1,2 @@
+class EntryCourse < ApplicationRecord
+end
