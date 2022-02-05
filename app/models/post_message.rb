@@ -1,0 +1,2 @@
+class PostMessage < ApplicationRecord
+end
