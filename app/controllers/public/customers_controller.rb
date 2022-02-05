@@ -1,10 +1,11 @@
 class Public::CustomersController < ApplicationController
+  before_action :authenticate_customer!
+  before_action :set_current_customer
+
   def show
-    @customer = current_customer
   end
 
   def edit
-    @customer = current_customer
   end
 
   def update
@@ -16,11 +17,10 @@ class Public::CustomersController < ApplicationController
       render "edit"
     end
   end
-    
+
   def unsubscribe
-    @customer = current_customer
   end
-  
+
     #退会処理
   def withdraw
     @customer = current_customer
@@ -30,6 +30,10 @@ class Public::CustomersController < ApplicationController
   end
 
   private
+
+  def set_current_customer
+    @customer = current_customer
+  end
 
   def customer_params
     params.require(:customer).permit(:last_name, :first_name, :family_name_kana, :last_name_kana, :age, :image, :is_deleted)

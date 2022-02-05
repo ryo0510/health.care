@@ -14,15 +14,6 @@
           </li>
          <% elsif admin_signed_in? %>
            <li class="nav-item">
-             <%= link_to icon('fas','file-alt',"注文履歴一覧"), admin_root_path, class:'btn btn-outline-light mx-3 my-1'%>
-           </li>
-           <li class="nav-item">
-             <%= link_to icon('fas','cookie-bite',"商品一覧"), admin_items_path,class: 'btn btn-outline-light mx-3 my-1' %>
-           </li>
-           <li class="nav-item">
-             <%= link_to icon('fas','fas fa-folder',"ジャンル一覧"), admin_genres_path,class: 'btn btn-outline-light mx-3 my-1'%>
-           </li>
-           <li class="nav-item">
              <%= link_to icon('fas','user-circle',"会員一覧"), admin_customers_path, class:'btn btn-outline-light mx-3 my-1'%>
            </li>
            <li class="nav-item">
