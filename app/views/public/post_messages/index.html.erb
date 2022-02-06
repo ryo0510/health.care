@@ -16,7 +16,7 @@
     </thead>
     <tbody>
       <% @post_messages.each do |post_message| %>
-        <tr>
+        <tr id="post_message_<%= post_message.id %>">
           <td><%= post_message.nickname %></td>
           <td><%= post_message.message %></td>
           <td><%= post_message.created_at.strftime("%Y/%m/%d %H:%M:%S") %></td>
