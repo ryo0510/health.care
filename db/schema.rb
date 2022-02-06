@@ -86,6 +86,7 @@ ActiveRecord::Schema.define(version: 2022_02_05_050413) do
   create_table "post_messages", force: :cascade do |t|
     t.integer "customer_id", null: false
     t.text "message", null: false
+    t.string "nickname", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

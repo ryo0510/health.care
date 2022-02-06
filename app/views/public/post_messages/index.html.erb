@@ -1,0 +1,27 @@
+<div>
+  <div class="col-md-4 offset-md-4">
+    <h2 calss="pt-5">掲示板</h2>
+    <%= render "form" %>
+  </div>
+</div>
+<div>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:10%">ニックネーム</th>
+        <th style="width:60%">メッセージ</th>
+        <th style="width:30%">投稿日時</th>
+        <th style="width:10%">いいね</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @post_messages.each do |post_message| %>
+        <tr>
+          <td><%= post_message.nickname %></td>
+          <td><%= post_message.message %></td>
+          <td><%= post_message.created_at.strftime("%Y/%m/%d %H:%M:%S") %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

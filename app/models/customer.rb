@@ -5,6 +5,7 @@ class Customer < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   attachment :image
+  has_many :post_messages, dependent: :destroy
 
   def full_name
    last_name + " " + first_name
