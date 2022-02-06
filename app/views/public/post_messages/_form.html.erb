@@ -1,0 +1,14 @@
+<%= form_with model: @post_message do |f| %>
+  <div class="form_group pt-4 pb-3">
+    <%= f.text_field :nickname, placeholder: "ニックネーム", class: "form-control" %>
+  </div>
+
+  <div class="form-group" >
+    <%= f.text_area :message, placeholder: "メッセージ", rows: 7, class: "form-control" %>
+  </div>
+
+  <div>
+    <%= f.submit "新規投稿", class: "btn btn-primary" %>
+  </div>
+
+<% end %>
