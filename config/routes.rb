@@ -24,7 +24,7 @@ Rails.application.routes.draw do
     get 'customers/mypage/edit' => 'customers#edit'
     patch 'customers/update' => 'customers#update'
 
-    resources :post_messages, only: [:index, :new, :create, :destroy] do
+    resources :post_messages, only: [:index, :create] do
       resource :favorites, only: [:create, :destroy]
     end
     resources :courses, only: [:index]
