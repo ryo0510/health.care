@@ -1,5 +1,5 @@
 class Admin::CustomersController < ApplicationController
-  before_action :ensure_customer, only: [:show, :edit, :update]
+  before_action :ensure_customer
 
   def show
   end
