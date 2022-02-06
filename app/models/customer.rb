@@ -6,6 +6,7 @@ class Customer < ApplicationRecord
 
   attachment :image
   has_many :post_messages, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
   def full_name
    last_name + " " + first_name
