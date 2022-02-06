@@ -9,7 +9,6 @@ class Public::CustomersController < ApplicationController
   end
 
   def update
-    @customer = current_customer
     if @customer.update(customer_params)
       redirect_to customers_mypage_path, notice: "登録情報を更新しました"
     else
@@ -23,7 +22,6 @@ class Public::CustomersController < ApplicationController
 
     #退会処理
   def withdraw
-    @customer = current_customer
     @customer.update(is_deleted: true) #falseからtrueにupdate
     reset_session #ページ遷移しても以前入力した情報を保持することができる機能のことをsessionという
     redirect_to root_path
