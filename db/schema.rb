@@ -59,8 +59,8 @@ ActiveRecord::Schema.define(version: 2022_02_05_050413) do
     t.string "first_name", null: false
     t.string "last_name_kana", null: false
     t.string "first_name_kana", null: false
-    t.integer "age", null: false
-    t.string "image_id"
+    t.string "tel", null: false
+    t.string "address", null: false
     t.boolean "is_deleted", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

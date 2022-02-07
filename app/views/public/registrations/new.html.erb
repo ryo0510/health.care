@@ -29,9 +29,14 @@
             <td><%= f.email_field :email, autfocus: true, autocomplete: "email" %></td>
           </tr>
           <tr>
-            <th>年齢</th>
+            <th>電話番号</th>
             <td class="sign-up-small-cell"></td>
-            <td><%= f.text_field :age, autfocus: true %>歳</td>
+            <td><%= f.text_field :tel, autfocus: true %></td>
+          </tr>
+          <tr>
+            <th>住所</th>
+            <td class="sign-up-small-cell"></td>
+            <td><%= f.text_field :address, autfocus: true %></td>
           </tr>
           <tr>
             <th>パスワード(6文字以上)</th>
