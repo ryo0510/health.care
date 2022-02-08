@@ -28,7 +28,7 @@ Rails.application.routes.draw do
       resource :favorites, only: [:create, :destroy]
     end
     resources :courses, only: [:index]
-    resources :entry_courses, only: [:index, :create, :update]
+    resources :entry_courses, only: [:new, :create, :update]
     resources :course_results, only: [:show, :edit, :update]
   end
 end

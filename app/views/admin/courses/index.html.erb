@@ -8,7 +8,7 @@
 		<h3 class="text-right">
 			<%= link_to "+", new_admin_course_path, class: "new_admin_item" %>
 		</h3>
-		<% if @courses.first %> <!-- @item.existsと同義、SQL1個分削減(?) -->
+		<% if @courses.first %> <!-- existsと同義、SQL1個分削減(?) -->
 			<%= render 'admin/courses/index', courses: @courses %>
 		<% else %>
 			<h3>対応するコースはありませんでした。</h3>
