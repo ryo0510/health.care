@@ -1,0 +1,47 @@
+
+  <div class="row">
+　　<div class="col-xs-12 mt-3">
+ 　  　<h4><i class="far fa-list-alt"></i>コース新規登録</h4>
+ 　　</div>
+    <div class="col-sm-10 px-sm-0 mx-auto md-5">
+     <%= form_with model: [:admin, @course], local:true do |f| %>
+      <table>
+        <tr>
+          <div class="form-group">
+            <th><%= f.label :コース名 %></th>
+            <th><%= f.text_field :name, placeholder:"コース名" %></th>
+          </div>
+        </tr>
+        <tr>
+          <div class="form-group">
+            <th><%= f.label :実施項目 %></th>
+            <th><%= f.text_area :working_item, size: "50×5", placeholder:"ここに実施項目を記述します" %></th>
+          </div>
+        </tr>
+        <tr>
+          <div class="form-group">
+            <th><%= f.label :カテゴリー %></th>
+            <th><%= f.collection_select :category_id, Category.all, :id, :name, :prompt => "--選択してください--" %></th>
+          </div>
+        </tr>
+        <tr>
+          <div class="form-group">
+            <th><%= f.label :目標日数 %></th>
+            <th><%= f.text_field :target_date, placeholder:"80" %>日</th>
+          </div>
+        </tr>
+        <tr>
+          <div class="form-group">
+            <th><%= f.label :記録方法 %></th>
+            <th><%= f.collection_select(:way, Course.ways_i18n, :first, :last, {selected: @course.way}, {class: "form-control"}) %></th>
+          </div>
+        </tr>
+        <tr>
+          <div class="form-action">
+            <th><%= f.submit "新規登録", class:"btn btn-success" %></th>
+          </div>
+        </tr>
+      </table>
+      <% end %>
+    </div>
+  </div>

@@ -2,5 +2,5 @@
     enums:
       course:
         way:
-          sign: 　    "記号"
-          number:     "数字"
+          sign:   "記号(◯or✖︎)"
+          number: "数字"

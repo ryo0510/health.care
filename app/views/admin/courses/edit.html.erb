@@ -1,0 +1,50 @@
+<div class="row">
+　　<div class="col-xs-12 mt-3">
+ 　　　<h4><i class="fas fa-pen"></i> コース詳細編集</h4>
+ 　　</div>
+ 　</div>
+
+ <div class="row">
+    <div class="col-8 offset-2 md-5">
+      <%= form_with model: @course, url: admin_course_path, local: true do |f| %>
+      <table>
+        <tr>
+          <div class="form-group">
+            <%= f.label :コース名, class:"form_label font-weight-bold" %>
+            <%= f.text_field :name, placeholder: "コース名", class:"form-control md-3" %>
+          </div>
+        </tr>
+        <tr>
+          <div class="form-group">
+            <%= f.label :実施項目, class:"form_label font-weight-bold" %>
+            <%= f.text_area :working_item, placeholder: "ここに実施項目を記述します", size: "900x10", class:"form-control form-control-lg mb-3" %>
+          </div>
+        </tr>
+        <tr>
+          <div class="form-group">
+            <%= f.label :カテゴリー, class:"form_label font-weight-bold" %>
+            <%=  f.collection_select(:category_id, Category.all, :id, :name, {include_blank: "--選択してください--"}, {class: "form-control"}) %>
+          </div>
+        </tr>
+        <tr>
+          <div class="form-group">
+            <%= f.label :目標日数, class:"form_label my-3 font-weight-bold" %>
+            <%= f.text_field :target_date, size:"5" %>日
+          </div>
+        </tr>
+        <tr>
+          <div class="form-group">
+            <%= f.label :記録方法, class:"form_label my-3 font-weight-bold" %>
+            <%= f.collection_select(:way, Course.ways_i18n, :first, :last, {selected: @course.way}, {class: "form-control"}) %>
+          </div>
+        </tr>
+        <tr>
+          <div class="form-action d-flex justify-content-around">
+            <%= f.submit "変更を保存する", class:"btn btn-success" %>
+            <%= link_to "コース詳細へ戻る", admin_course_path, class:"btn btn-outline-secondary" %>
+          </div>
+        </tr>
+      </table>
+      <% end %>
+    </div>
+  </div>
