@@ -1,0 +1,24 @@
+<table class="admin_items has_border">
+	<thead>
+		<tr>
+			<th>コースID</th>
+			<th>コース名</th>
+			<th>実施項目</th>
+			<th>目標日数</th>
+			<th>記録方法</th>
+			<th>カテゴリー</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% courses.each do |course| %>
+			<tr>
+				<td class="text-center"><%= course.id %></td>
+				<td><%= link_to course.name, admin_course_path(course), class: "underline" %></td>
+				<td><%= course.working_item %></td>
+				<td><%= course.target_date %></td>
+				<td><%= course.way_i18n %></td>
+				<td><%= link_to course.category.name, admin_courses_path(category_id: course.category_id) %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
