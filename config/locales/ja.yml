@@ -1,0 +1,6 @@
+ ja:
+    enums:
+      course:
+        way:
+          sign: 　    "記号"
+          number:     "数字"
