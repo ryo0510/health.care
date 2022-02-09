@@ -6,7 +6,7 @@ class Customer < ApplicationRecord
 
   has_many :post_messages, dependent: :destroy
   has_many :favorites, dependent: :destroy
-  has_many :entry_courses, dependent: :destroy
+  has_many :entries, dependent: :destroy
   has_many :course_results
 
   def full_name
