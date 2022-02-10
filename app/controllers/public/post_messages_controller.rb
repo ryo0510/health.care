@@ -5,10 +5,10 @@ class Public::PostMessagesController < ApplicationController
   end
 
   def create
+    @post_messages = PostMessage.all
     @post_message = PostMessage.new(post_message_params)
     @post_message.customer_id = current_customer.id
     @post_message.save
-    redirect_to post_messages_path
   end
 
   def post_message_params

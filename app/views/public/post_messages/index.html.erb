@@ -5,7 +5,7 @@
   </div>
 </div>
 <div>
-  <table>
+  <table class="post_messages">
     <thead>
       <tr>
         <th style="width:10%">ニックネーム</th>
@@ -14,16 +14,8 @@
         <th style="width:10%">いいね</th>
       </tr>
     </thead>
-    <tbody>
-      <% @post_messages.each do |post_message| %>
-        <tr id="post_message_<%= post_message.id %>">
-          <td><%= post_message.nickname %></td>
-          <td><%= post_message.message %></td>
-          <td><%= post_message.created_at.strftime("%Y/%m/%d %H:%M:%S") %></td>
-          <td class="favorite-btn"><%= render "public/favorites/favorite-btn", post_message: post_message %></td>
-
-        </tr>
-      <% end %>
+    <tbody id="messages">
+      <%= render 'index', post_messages: @post_messages %>
     </tbody>
   </table>
 </div>
