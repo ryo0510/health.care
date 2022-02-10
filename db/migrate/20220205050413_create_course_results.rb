@@ -3,7 +3,7 @@ class CreateCourseResults < ActiveRecord::Migration[5.2]
     create_table :course_results do |t|
       t.integer :customer_id, null: false
 			t.integer :course_id, null: false
-			t.string :record
+			t.string :history
 			t.string :memo
 
       t.timestamps

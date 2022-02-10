@@ -40,11 +40,9 @@ class DeviseCreateCustomers < ActiveRecord::Migration[5.2]
       t.string :address, null: false
       t.boolean :is_deleted, null: false, default: false
 
-
-
       t.timestamps null: false
     end
-
+    add_reference :customers, :course_results, foreign_key: true
     add_index :customers, :email,                unique: true
     add_index :customers, :reset_password_token, unique: true
     # add_index :customers, :confirmation_token,   unique: true

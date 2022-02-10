@@ -4,17 +4,16 @@ class Public::EntriesController < ApplicationController
   end
 
   def create
-    @entry = current_customer.entries.new(entry_params)
-      @entry.save
-      @entry.create_course_results(current_customer)
-      flash.now[:notice] = "コースを追加しました。"
-      redirect_to customers_mypage_path
+    entry = current_customer.entries.create(entry_params)
+    course_result =current_customer.course_results.create(entry_params)
+    flash.now[:notice] = "コースを追加しました。"
+    redirect_to customers_mypage_path
   end
 
   private
 
   def entry_params
-    params.require(:entry).permit(:custoemr_id, :course_id)
+    params.require(:entry).permit(:course_id)
   end
 
 end

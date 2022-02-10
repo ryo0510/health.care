@@ -7,7 +7,9 @@ class CreateCourses < ActiveRecord::Migration[5.2]
     	t.integer :target_date, null: false
     	t.integer :way, null: false
 
+
       t.timestamps
     end
+    add_reference :courses, :course_results, foreign_key: true
   end
 end

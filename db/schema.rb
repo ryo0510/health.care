@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2022_02_09_045536) do
   create_table "course_results", force: :cascade do |t|
     t.integer "customer_id", null: false
     t.integer "course_id", null: false
-    t.string "record"
+    t.string "history"
     t.string "memo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -47,6 +47,8 @@ ActiveRecord::Schema.define(version: 2022_02_09_045536) do
     t.integer "way", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "course_results_id"
+    t.index ["course_results_id"], name: "index_courses_on_course_results_id"
   end
 
   create_table "customers", force: :cascade do |t|
@@ -64,6 +66,8 @@ ActiveRecord::Schema.define(version: 2022_02_09_045536) do
     t.boolean "is_deleted", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "course_results_id"
+    t.index ["course_results_id"], name: "index_customers_on_course_results_id"
     t.index ["email"], name: "index_customers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
@@ -71,14 +75,6 @@ ActiveRecord::Schema.define(version: 2022_02_09_045536) do
   create_table "entries", force: :cascade do |t|
     t.integer "customer_id", null: false
     t.integer "course_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "entry_courses", force: :cascade do |t|
-    t.integer "customer_id", null: false
-    t.integer "course_id", null: false
-    t.integer "quantity", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
