@@ -1,8 +1,7 @@
 class CreateCourseResults < ActiveRecord::Migration[5.2]
   def change
     create_table :course_results do |t|
-      t.integer :customer_id, null: false
-			t.integer :course_id, null: false
+			t.integer :entry_id, null: false
 			t.string :history
 			t.string :memo
 

@@ -31,8 +31,7 @@ ActiveRecord::Schema.define(version: 2022_02_09_045536) do
   end
 
   create_table "course_results", force: :cascade do |t|
-    t.integer "customer_id", null: false
-    t.integer "course_id", null: false
+    t.integer "entry_id", null: false
     t.string "history"
     t.string "memo"
     t.datetime "created_at", null: false
@@ -47,8 +46,6 @@ ActiveRecord::Schema.define(version: 2022_02_09_045536) do
     t.integer "way", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "course_results_id"
-    t.index ["course_results_id"], name: "index_courses_on_course_results_id"
   end
 
   create_table "customers", force: :cascade do |t|

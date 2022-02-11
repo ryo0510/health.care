@@ -9,7 +9,23 @@
             <%= form_with(model: @entry, url: entries_path,local: true ) do |f| %>
              <div class="col-xs-10">
                <%= f.label :couse_select, "コース1" %><br>
-               <%= f.collection_select :course_id, Course.all , :id, :name, :prompt => "--選択してください--" %>
+               <%= f.collection_select(:course_id, Course.all, :id, :name, {:prompt => "--選択してください--"}) %>
+             </div>
+             <div class="col-xs-10">
+               <%= f.label :couse_select, "コース2" %><br>
+               <%= f.collection_select(:course_id, Course.all , :id, :name, {:prompt => "--選択してください--"}) %>
+             </div>
+             <div class="col-xs-10">
+               <%= f.label :couse_select, "コース3" %><br>
+               <%= f.collection_select(:course_id, Course.all , :id, :name, {:prompt => "--選択してください--"}) %>
+             </div>
+             <div class="col-xs-10">
+               <%= f.label :couse_select, "コース4" %><br>
+               <%= f.collection_select(:course_id, Course.all , :id, :name, {:prompt => "--選択してください--"}) %>
+             </div>
+             <div class="col-xs-10">
+               <%= f.label :couse_select, "コース5" %><br>
+               <%= f.collection_select(:course_id, Course.all , :id, :name, {:prompt => "--選択してください--"}) %>
              </div>
 
              <div class="col-xs-8 d-flex justify-content-center mt-5">

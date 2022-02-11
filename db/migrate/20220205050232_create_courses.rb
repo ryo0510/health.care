@@ -10,6 +10,5 @@ class CreateCourses < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
-    add_reference :courses, :course_results, foreign_key: true
   end
 end
