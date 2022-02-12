@@ -23,12 +23,12 @@ Rails.application.routes.draw do
     get 'customers/mypage' => 'customers#show'
     get 'customers/mypage/edit' => 'customers#edit'
     patch 'customers/update' => 'customers#update'
+    get 'entries/input' => 'entries#input'
 
     resources :post_messages, only: [:index, :create] do
       resource :favorites, only: [:create, :destroy]
     end
     resources :courses, only: [:index]
     resources :entries, only: [:new, :create]
-    resources :course_results, only: [:show, :edit, :update]
   end
 end
