@@ -26,7 +26,7 @@ class Public::EntriesController < ApplicationController
 
     firstDay = date_now.beginning_of_month
     firstDayIndex = firstDay.wday
-    @calender = Array.new(45){|i| firstDay - (i + firstDayIndex)}
+    @calender = Array.new(60){|i| date_now - (i - firstDayIndex)}
   end
 
   private
