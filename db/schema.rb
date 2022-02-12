@@ -36,6 +36,8 @@ ActiveRecord::Schema.define(version: 2022_02_09_045536) do
     t.string "memo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "entries_id"
+    t.index ["entries_id"], name: "index_course_results_on_entries_id"
   end
 
   create_table "courses", force: :cascade do |t|
@@ -63,8 +65,6 @@ ActiveRecord::Schema.define(version: 2022_02_09_045536) do
     t.boolean "is_deleted", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "course_results_id"
-    t.index ["course_results_id"], name: "index_customers_on_course_results_id"
     t.index ["email"], name: "index_customers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end

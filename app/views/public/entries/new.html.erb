@@ -6,27 +6,27 @@
    <div class="row">
      <div class="col-xs-12">
 
-            <%= form_with(model: @entry, url: entries_path,local: true ) do |f| %>
+            <%= form_with(model: @entry, local: true ) do |f| %>
              <div class="col-xs-10">
                <%= f.label :couse_select, "コース1" %><br>
-               <%= f.collection_select(:course_id, Course.all, :id, :name, {:prompt => "--選択してください--"}) %>
+               <%= f.collection_check_boxes(:course_id, Course.all, :id, :name) %>
              </div>
-             <div class="col-xs-10">
-               <%= f.label :couse_select, "コース2" %><br>
-               <%= f.collection_select(:course_id, Course.all , :id, :name, {:prompt => "--選択してください--"}) %>
-             </div>
-             <div class="col-xs-10">
-               <%= f.label :couse_select, "コース3" %><br>
-               <%= f.collection_select(:course_id, Course.all , :id, :name, {:prompt => "--選択してください--"}) %>
-             </div>
-             <div class="col-xs-10">
-               <%= f.label :couse_select, "コース4" %><br>
-               <%= f.collection_select(:course_id, Course.all , :id, :name, {:prompt => "--選択してください--"}) %>
-             </div>
-             <div class="col-xs-10">
-               <%= f.label :couse_select, "コース5" %><br>
-               <%= f.collection_select(:course_id, Course.all , :id, :name, {:prompt => "--選択してください--"}) %>
-             </div>
+             <!--<div class="col-xs-10">-->
+               <%#= f.label :couse_select, "コース2" %><br>
+               <%# = f.check_box(:course_ids, Course.all , :id, :name, {:prompt => "--選択してください--",  :multiple => true}) %>
+             <!--</div>-->
+             <!--<div class="col-xs-10">-->
+             <!--  <%#= f.label :couse_select, "コース3" %><br>-->
+             <!--  <%#= f.collection_select(:course_id, Course.all , :id, :name, {:prompt => "--選択してください--"}) %>-->
+             <!--</div>-->
+             <!--<div class="col-xs-10">-->
+             <!--  <%#= f.label :couse_select, "コース4" %><br>-->
+             <!--  <%#= f.collection_select(:course_id, Course.all , :id, :name, {:prompt => "--選択してください--"}) %>-->
+             <!--</div>-->
+             <!--<div class="col-xs-10">-->
+             <!--  <%#= f.label :couse_select, "コース5" %><br>-->
+             <!--  <%#= f.collection_select(:course_id, Course.all , :id, :name, {:prompt => "--選択してください--"}) %>-->
+             <!--</div>-->
 
              <div class="col-xs-8 d-flex justify-content-center mt-5">
                <%= f.submit "保存" , class:"btn btn-primary col-xs-5"  %>
