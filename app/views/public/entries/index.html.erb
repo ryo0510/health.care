@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-sm-4 col-12">
+    <p class="text-h6 mb-0 mb-sm-4">コース結果登録</p>
+  </div>
+</div>
+<div class="row mt-5">
+    <div class="col-md-9">
+      <table class="sticky_table hidden-sm-and-down">
+        <thead>
+          <tr>
+            <th>日付</th>
+            <th>曜日</th>
+            <% @entries.each do |entry| %>
+              <th><%= entry.course.name %></th>
+            <% end %>
+            <th>メモ欄</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @calender.each do |c| %>
+            <tr>
+              <td><%= "#{c.year}/#{c.month}/#{c.day}" %></td>
+              <td>(<%= @weeks[c.wday] %>)</td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
