@@ -18,6 +18,10 @@ class Public::EntriesController < ApplicationController
 
   def index
     @entries = current_customer.entries.all
+  end
+
+  def edit
+    @entry = current_customer.entries.find(params[:id])
 
     # 現在の曜日と年月日
     date_now = Date.current
@@ -26,7 +30,7 @@ class Public::EntriesController < ApplicationController
 
     firstDay = date_now.beginning_of_month
     firstDayIndex = firstDay.wday
-    @calender = Array.new(60){|i| date_now - (i - firstDayIndex)}
+    @calender = Array.new(70){|i| date_now - (i - firstDayIndex)}
   end
 
   private
