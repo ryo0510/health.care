@@ -4,7 +4,7 @@ class Public::CoursesController < ApplicationController
     if params[:category_id]
       # Categoryのデータベースのテーブルから一致するidを取得
       @category = Category.find(params[:category_id])
-       
+
       # category_idと紐づくコースを取得
       @courses = @category.courses.order(created_at: :desc).all
     else
@@ -12,4 +12,9 @@ class Public::CoursesController < ApplicationController
       @courses = Course.order(created_at: :desc).all
     end
   end
+
+  def show
+    @course = Course.find(params[:id])
+  end
+  
 end

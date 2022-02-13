@@ -1,0 +1,36 @@
+<div class="row">
+　　<div class="col-xs-12 mt-3">
+ 　　　<h4><i class="fas fa-clipboard-list"></i>コース詳細</h4>
+ 　　</div>
+ 　</div>
+
+    <div class="row align-courses-center m-5">
+    <div class="col-lg">
+      <table class="table table-bordered">
+        <tr>
+          <th style="width:15%">コース名</th>
+          <td><%= @course.name %></td>
+        </tr>
+        <tr>
+          <th>実施項目</th>
+          <td><%= @course.working_item %></td>
+        </tr>
+        <tr>
+          <th >カテゴリー</th>
+          <td><%= @course.category.name %></td>
+        </tr>
+        <tr>
+          <th >実施日数</th>
+          <td><%= @course.target_date %> 日</td>
+        </tr>
+        <tr>
+          <th >記録方法</th>
+          <td><%= @course.way_i18n %></td>
+        </tr>
+      </table>
+      <div class="d-flex justify-content-around">
+        <p><%= link_to "登録コース一覧",entries_path, class:"btn btn-success" %></p>
+        <p><%= link_to "全コース一覧",courses_path, class:"btn btn-outline-secondary" %></p>
+      </div>
+    </div>
+  </div>
