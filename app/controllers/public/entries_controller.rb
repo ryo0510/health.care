@@ -13,7 +13,7 @@ class Public::EntriesController < ApplicationController
         course = entry.course_results.create!(entry_id: entry.id)
       end
     end
-    redirect_to customers_mypage_path
+    redirect_to entries_path
   end
 
   def index
