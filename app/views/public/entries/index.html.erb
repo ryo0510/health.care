@@ -1,0 +1,45 @@
+<div class="container col-xs-6">
+    <div class="row">
+　　  <div class="col-xs-12 mt-3">
+ 　　   　<h4><i class="fas fa-shopping-cart"></i>登録コース一覧</h4>
+ 　  　</div>
+  　</div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+        <% if @entries.present? %>
+          <div class="text-right my-2">
+            <table class="table table-hover table-bordered mb-3 text-left">
+              <tr>
+                <th id="items" style="width:30%">登録コース</th>
+                <th id="items" style="width:15%">コースの説明</th>
+                <th id="items" style="width:20%">コース達成状況</th>
+                <th id="items" style="width:20%">記録</th>
+                <th style="width:10%"></th>
+              </tr>
+              <% @entries.each do |entry| %>
+              <tr>
+                <td>
+                  <%= entry.course.name %>
+                </td>
+                <td>
+                 <%= link_to "表示", course_path(entry.course), class:"btn-link" %>
+                </td>
+                <td>
+                 <%= entry.course.target_date %>日中、日クリア
+                </td>
+                <td>
+                 <%= link_to "表示", edit_course_result_path(entry.course_result_ids), class: "btn-link" %>
+                </td>
+             </tr>
+             <% end %>
+           </table>
+           <div class="text-center mb-5">
+             <%= link_to "コース選択に戻る", new_entry_path, class: "btn btn-sm btn-primary" %>
+             <% else %>
+             <p>登録コースがありません</p>
+             <% end %>
+           </div>
+         </div>
+      </div>
+    </div>
+  </div>

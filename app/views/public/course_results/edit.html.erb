@@ -5,14 +5,14 @@
 </div>
 <div class="row mt-5">
     <div class="col-md-9">
-      <%= form_with model: @entry.course_results, url: course_result_path(@entry.course_results), method: :PATCH,  local: true do |f| %>
+      <%= form_with model: @course_result, url: course_result_path(@course_result), local: true do |f| %>
       <div class="col-8"><%= f.submit "変更を保存", class: "btn btn-success" %></div>
       <table class="sticky_table hidden-sm-and-down">
         <thead>
           <tr>
             <th>日付</th>
             <th>曜日</th>
-            <th><%= @entry.course.name %></th>
+            <th><%= @course_result.entry.course.name %></th>
             <th>メモ欄</th>
           </tr>
         </thead>

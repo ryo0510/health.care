@@ -1,4 +1,17 @@
 class Public::CourseResultsController < ApplicationController
+  def edit
+    @course_result = CourseResult.find(params[:id])
+
+    # 現在の曜日と年月日
+    date_now = Date.current
+
+    @weeks = ["日", "月", "火", "水", "木", "金", "土"]
+
+    firstDay = date_now.beginning_of_month
+    firstDayIndex = firstDay.wday
+    @calender = Array.new(70){|i| date_now - (i - firstDayIndex)}
+  end
+
   def update
     @course_result = CourseResult.find(params[:id])
     if @course_result.update(course_result_params)

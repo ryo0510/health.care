@@ -27,8 +27,8 @@ Rails.application.routes.draw do
     resources :post_messages, only: [:index, :create] do
       resource :favorites, only: [:create, :destroy]
     end
-    resources :courses, only: [:index]
-    resources :entries, only: [:new, :create, :index, :edit]
-    resources :course_results, only: [:update]
+    resources :courses, only: [:index, :show]
+    resources :entries, only: [:new, :create, :index]
+    resources :course_results, only: [:edit, :update]
   end
 end
