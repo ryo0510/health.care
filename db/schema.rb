@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2022_02_09_045536) do
     t.integer "entry_id", null: false
     t.string "history"
     t.string "memo"
+    t.datetime "start_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "entries_id"

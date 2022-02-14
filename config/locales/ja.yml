@@ -205,3 +205,8 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
+  enums:
+      course:
+        way:
+          sign: "記号(◯ or ×)"
+          number: "数値"
