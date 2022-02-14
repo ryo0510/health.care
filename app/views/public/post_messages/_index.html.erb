@@ -4,7 +4,7 @@
           <td><%= post_message.nickname %></td>
           <td><%= post_message.message %></td>
           <td><%= post_message.created_at.strftime("%Y/%m/%d %H:%M:%S") %></td>
-          <td><%= attachment_image_tag post_message, :image, :fill, 75, 75 %></td>
+          <td class="text-center"><%= attachment_image_tag post_message, :image, :fill, 75, 75 %></td>
           <td class="favorite-btn"><%= render "public/favorites/favorite-btn", post_message: post_message %></td>
         </tr>
       <% end %>
