@@ -1,15 +1,15 @@
 class Public::CourseResultsController < ApplicationController
-  def edit
+  def show
+    @result = CourseResult.new
     @course_result = CourseResult.find(params[:id])
 
-    # 現在の曜日と年月日
-    date_now = Date.current
+  end
 
-    @weeks = ["日", "月", "火", "水", "木", "金", "土"]
-    
-    firstDay = date_now.beginning_of_month
-    firstDayIndex = firstDay.wday
-    @calender = Array.new(70){|i| date_now - (i - firstDayIndex)}
+  def create
+    @course_result = CourseResult.new(course_result_params)
+    @course_result.save
+    redirect_to request.referer
+
   end
 
   def update
@@ -23,6 +23,6 @@ class Public::CourseResultsController < ApplicationController
   private
 
   def course_result_params
-    params.require(:course_result).permit(:history, :memo)
+    params.require(:course_result).permit(:history, :memo, :start_time)
   end
 end
