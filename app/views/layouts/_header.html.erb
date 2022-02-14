@@ -7,10 +7,10 @@
           <li class="nav-item active">
            <span class="nav-link text-dark">ようこそ、<%= current_customer.last_name%>さん</span>
           </li>
-          <li>
+          <li class="nav-item">
             <%= link_to icon('fas','fas fa-user',"マイページ"), customers_mypage_path, class: "btn btn-outline-light mx-3 my-1"%>
           </li>
-          <li>
+          <li class="nav-item">
             <%= link_to icon('fas','fas fa-user',"コース一覧"), courses_path, class: "btn btn-outline-light mx-3 my-1"%>
           </li>
           <li class="nav-item">
