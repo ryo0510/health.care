@@ -324,7 +324,7 @@ DEPENDENCIES
   devise
   dotenv-rails
   enum_help
-  font-awesome-sass (~> 5.13)
+  font-awesome-sass
   jbuilder (~> 2.5)
   jquery-rails
   kaminari (~> 1.2.1)

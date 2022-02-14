@@ -1,7 +1,7 @@
 class Public::PostMessagesController < ApplicationController
   def index
     @post_message = PostMessage.new
-    @post_messages = PostMessage.all
+    @post_messages =  PostMessage.all.order(created_at: :desc).page(params[:page]).per(15)
   end
 
   def create

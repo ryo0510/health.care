@@ -1,7 +1,16 @@
-<div>
-  <div class="col-md-4 offset-md-4">
-    <h2 calss="pt-5">掲示板</h2>
+<h3 calss="pt-5">掲示板</h3>
+<div class="row g-0">
+  <div class="col-6 col-md-4">
     <%= render "form" %>
+  </div>
+  <div class="col-sm-6 col-md-8">
+    <h5>意気込みや健康の豆知識など、楽しく交流しましょう！</h5>
+    <div class="alert alert-danger d-flex align-items-center" role="alert">
+      <div>
+        <i class="fas fa-exclamation-triangle"></i> いくつか注意事項があります。<br>
+        ・公序良俗に反しないもの<br>・誹謗中傷又は、他人の名誉もしくは信用を毀損する内容を含まないもの<br>・第三者のプライバシーを侵害していないもの<br>
+      </div>
+    </div>
   </div>
 </div>
 <div>
@@ -19,4 +28,5 @@
       <%= render 'index', post_messages: @post_messages %>
     </tbody>
   </table>
+  <%= paginate @post_messages %>
 </div>
