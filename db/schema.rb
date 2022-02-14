@@ -87,6 +87,7 @@ ActiveRecord::Schema.define(version: 2022_02_09_045536) do
     t.integer "customer_id", null: false
     t.text "message", null: false
     t.string "nickname", null: false
+    t.string "image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
