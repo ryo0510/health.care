@@ -12,7 +12,7 @@ class Public::PostMessagesController < ApplicationController
   end
 
   def post_message_params
-    params.require(:post_message).permit(:nickname, :message)
+    params.require(:post_message).permit(:nickname, :message, :image)
   end
 
 end
