@@ -10,9 +10,22 @@
           <li class="nav-item">
             <%= link_to icon('fas','fas fa-user',"マイページ"), customers_mypage_path, class: "btn btn-outline-light mx-3 my-1"%>
           </li>
-          <li class="nav-item">
-            <%= link_to icon('fas','fas fa-user',"コース一覧"), courses_path, class: "btn btn-outline-light mx-3 my-1"%>
-          </li>
+          <div class="dropdown">
+            <button class="btn btn-outline-light mx-3 my-1 dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fas fa-clipboard-list"></i> コース
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+              <li><button class="dropdown-item" type="button">
+                <%= link_to "コース説明", courses_path %>
+              </button></li>
+              <li><button class="dropdown-item" type="button">
+                <%= link_to "コース設定", new_entry_path %>
+              </button></li>
+              <li><button class="dropdown-item" type="button">
+                <%= link_to "記録", entries_path %>
+              </button></li>
+            </ul>
+          </div>
           <li class="nav-item">
             <%= link_to icon('fas','sign-out-alt',"ログアウト"), destroy_customer_session_path, method: :delete ,class: 'btn btn-outline-light mx-3 my-1'%>
           </li>

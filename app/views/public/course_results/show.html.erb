@@ -1,4 +1,4 @@
-<h2 class="section-top"><span class="fas fa-dumbbell" aria-hidden="true"></span> コース結果登録</h2>
+<h2><i class="fas fa-angle-double-left"></i><%= @course_result.entry.course.name %><i class="fas fa-angle-double-right"></i>  コース結果登録</h2>
 	<div class="row">
 	  <div class="col-6 col-md-4">
     <%= form_with(model:[@course_result, @history], local: true) do |f| %>
@@ -65,4 +65,5 @@
 				</tbody>
 			<% end %>
   		</table>
+  		<%= paginate @histories %>
   		<% end %>
