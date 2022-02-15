@@ -9,7 +9,7 @@ class Public::HistoriesController < ApplicationController
 
   def destroy
     History.find_by(id: params[:id]).destroy
-    redirect_to course_result_path(course_result)
+    redirect_to course_result_path(params[:course_result_id])
   end
 
   private

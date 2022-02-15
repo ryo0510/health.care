@@ -1,30 +1,24 @@
-<div class="container-fluid">
-	<h2 class="section-top">コース結果登録</h2>
-	<div class="col-md-3 col-sm-12 col-xs-12">
+<h2 class="section-top"><span class="fas fa-dumbbell" aria-hidden="true"></span> コース結果登録</h2>
+	<div class="row g-0">
+	  <div class="col-6 col-md-4">
     <%= form_with(model:[@course_result, @history], local: true) do |f| %>
-      <div class="title">
-        <%= f.label :result %>
+      <div class="form_group pt-4 pb-3">
         <%= f.text_field :result %>
       </div>
-    <div class="time">
-    <%= f.label :start_time %>
+    <div class ="form-group">
     <%= f.date_select :start_time %>
   </div>
-
-  <div class="content">
-    <%= f.label :memo %>
-    <%= f.text_field :memo %>
+      <div class="form-group" >
+     <%= f.text_field :memo %>
   </div>
-
-
-  <div class="submit">
-    <%= f.submit %>
+  <div class="mb-3">
+    <%= f.submit "新規登録", class: "btn btn-primary" %>
   </div>
-
    <% end %>
-  </div>
- </div>
- <div class="col-md-9 col-sm-12 col-xs-12">
+</div>
+
+
+ <div class="col-sm-6 col-md-8">
 		<%= month_calendar events: @course_result.histories do |date, histories| %>
 		  <%= date.day %>
 		  <% histories.each do |history| %>
@@ -33,3 +27,27 @@
 		    </div>
 		  <% end %>
 		<% end %>
+	</div>
+</div>
+
+<table class="history table table-bordered">
+			<thead>
+				<tr>
+					<th>結果登録日</th>
+					<th>結果</th>
+					<th>メモ</th>
+					<th></th>
+				</tr>
+		  </thead>
+			<%  @course_result.histories.each do |history| %>
+				<tbody>
+					<tr>
+						<td><%= history.start_time.strftime("%Y-%m-%d") %></td>
+						<td><%= history.result %></td>
+						<td><%= history.memo %></td>
+						<td><%= link_to "削除", course_result_history_path(history.course_result, history), method: :delete %></td>
+					</tr>
+				</tbody>
+			<% end %>
+  		</table>
+  	</div>
