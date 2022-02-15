@@ -29,6 +29,8 @@ Rails.application.routes.draw do
     end
     resources :courses, only: [:index, :show]
     resources :entries, only: [:new, :create, :index]
-    resources :course_results, only: [:edit, :update]
+    resources :course_results, only: [:show] do
+      resources :histories, only: [:create, :destroy]
+    end
   end
 end
