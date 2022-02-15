@@ -24,3 +24,12 @@
    <% end %>
   </div>
  </div>
+ <div class="col-md-9 col-sm-12 col-xs-12">
+		<%= month_calendar events: @course_result.histories do |date, histories| %>
+		  <%= date.day %>
+		  <% histories.each do |history| %>
+		    <div>
+		      <%= history.result %>
+		    </div>
+		  <% end %>
+		<% end %>
