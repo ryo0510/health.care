@@ -1,7 +1,7 @@
 <div class="container-fluid">
 	<h2 class="section-top">コース結果登録</h2>
 	<div class="col-md-3 col-sm-12 col-xs-12">
-   <%= form_with model: @result, url: course_results_path, local: true do |f| %>
+    <%= form_with(model:[@course_result, @history], local: true) do |f| %>
       <div class="title">
         <%= f.label :history %>
         <%= f.text_field :history %>
