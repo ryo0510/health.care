@@ -1,9 +1,16 @@
 <h2 class="section-top"><span class="fas fa-dumbbell" aria-hidden="true"></span> コース結果登録</h2>
-	<div class="row g-0">
+	<div class="row">
 	  <div class="col-6 col-md-4">
     <%= form_with(model:[@course_result, @history], local: true) do |f| %>
       <div class="form_group pt-4 pb-3">
+        <% if @course_result.entry.course.way? %>
+        <%= f.radio_button :result, true %>
+          <%= f.label :result, "実施できた", value: true %>
+
+        <% else %>
         <%= f.text_field :result %>
+
+        <% end %>
       </div>
     <div class ="form-group">
     <%= f.date_select :start_time %>
@@ -23,31 +30,39 @@
 		  <%= date.day %>
 		  <% histories.each do |history| %>
 		    <div>
-		      <%= history.result %>
+		      <% if @course_result.entry.course.way? %>
+		       ◯
+		      <% else %>
+		       <%= history.result %>
+		      <% end %>
 		    </div>
 		  <% end %>
 		<% end %>
 	</div>
 </div>
-
+<% if @course_result.histories.present? %>
 <table class="history table table-bordered">
 			<thead>
 				<tr>
-					<th>結果登録日</th>
-					<th>結果</th>
-					<th>メモ</th>
-					<th></th>
+					<th style="width:15%">結果登録日</th>
+					<th style="width:15%">結果</th>
+					<th style="width:60%">メモ</th>
+					<th style="width:10%"></th>
 				</tr>
 		  </thead>
 			<%  @course_result.histories.each do |history| %>
 				<tbody>
 					<tr>
 						<td><%= history.start_time.strftime("%Y-%m-%d") %></td>
-						<td><%= history.result %></td>
+						<% if @course_result.entry.course.way? %>
+		       <td>◯</td>
+		      <% else %>
+		       <td><%= history.result %></td>
+		      <% end %>
 						<td><%= history.memo %></td>
 						<td><%= link_to "削除", course_result_history_path(history.course_result, history), method: :delete %></td>
 					</tr>
 				</tbody>
 			<% end %>
   		</table>
-  	</div>
+  		<% end %>
