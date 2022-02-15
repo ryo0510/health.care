@@ -40,7 +40,7 @@
 		<% end %>
 	</div>
 </div>
-<% if @course_result.histories.present? %>
+<% if @histories.present? %>
 <table class="history table table-bordered">
 			<thead>
 				<tr>
@@ -50,7 +50,7 @@
 					<th style="width:10%"></th>
 				</tr>
 		  </thead>
-			<%  @course_result.histories.each do |history| %>
+			<%  @histories.each do |history| %>
 				<tbody>
 					<tr>
 						<td><%= history.start_time.strftime("%Y-%m-%d") %></td>

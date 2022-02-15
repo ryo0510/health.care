@@ -12,7 +12,7 @@
               <tr>
                 <th id="items" style="width:30%">登録コース</th>
                 <th id="items" style="width:15%">コースの説明</th>
-                <th id="items" style="width:20%">コース達成状況</th>
+                <th id="items" style="width:20%">コース達成日数</th>
                 <th id="items" style="width:20%">記録</th>
               </tr>
               <% @entries.each do |entry| %>
@@ -24,7 +24,7 @@
                  <%= link_to "表示", course_path(entry.course), class:"btn-link" %>
                 </td>
                 <td>
-                 <%= entry.course.target_date %>日中、日クリア
+                 <%= entry.course.target_date %>日
                 </td>
                 <td>
                  <%= link_to "表示", course_result_path(entry.course_result_ids), class: "btn-link" %>
