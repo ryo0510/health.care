@@ -32,7 +32,6 @@ ActiveRecord::Schema.define(version: 2022_02_15_042226) do
 
   create_table "course_results", force: :cascade do |t|
     t.integer "entry_id", null: false
-    t.integer "history_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "entries_id"
@@ -84,6 +83,7 @@ ActiveRecord::Schema.define(version: 2022_02_15_042226) do
 
   create_table "histories", force: :cascade do |t|
     t.integer "customer_id", null: false
+    t.integer "course_result_id", null: false
     t.string "result", null: false
     t.string "memo"
     t.datetime "start_time", null: false
