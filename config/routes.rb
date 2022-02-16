@@ -27,7 +27,11 @@ Rails.application.routes.draw do
     resources :post_messages, only: [:index, :create] do
       resource :favorites, only: [:create, :destroy]
     end
-    resources :courses, only: [:index, :show]
+    resources :courses, only: [:index, :show] do
+      collection do
+        get 'search'
+      end
+    end
     resources :entries, only: [:new, :create, :index]
     resources :course_results, only: [:show] do
       resources :histories, only: [:create, :destroy]
