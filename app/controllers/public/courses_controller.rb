@@ -16,5 +16,14 @@ class Public::CoursesController < ApplicationController
   def show
     @course = Course.find(params[:id])
   end
-  
+
+  def search
+    if params[:keyword].present?
+      @courses = Course.where('caption LIKE ?', "%#{params[:keyword]}%")
+      @keyword = params[:keyword]
+    else
+      @courses = Course.all
+    end
+  end
+
 end
