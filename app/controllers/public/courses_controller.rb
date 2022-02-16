@@ -19,7 +19,7 @@ class Public::CoursesController < ApplicationController
 
   def search
     if params[:keyword].present?
-      @courses = Course.where('caption LIKE ?', "%#{params[:keyword]}%")
+      @courses = Course.where('name LIKE ?', "%#{params[:keyword]}%")
       @keyword = params[:keyword]
     else
       @courses = Course.all
