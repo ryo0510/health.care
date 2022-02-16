@@ -3,7 +3,7 @@
 	  <div class="col-6 col-md-4">
     <%= form_with(model:[@course_result, @history], local: true) do |f| %>
       <div class="form_group pt-4 pb-3">
-        <% if @course_result.entry.course.way? %>
+        <% if @course_result.entry.course.way == "sign" %>
         <%= f.radio_button :result, true %>
           <%= f.label :result, "実施できた", value: true %>
 
@@ -30,7 +30,7 @@
 		  <%= date.day %>
 		  <% histories.each do |history| %>
 		    <div>
-		      <% if @course_result.entry.course.way? %>
+		      <% if @course_result.entry.course.way == "sign" %>
 		       ◯
 		      <% else %>
 		       <%= history.result %>
@@ -54,7 +54,7 @@
 				<tbody>
 					<tr>
 						<td><%= history.start_time.strftime("%Y-%m-%d") %></td>
-						<% if @course_result.entry.course.way? %>
+						<% if @course_result.entry.course.way == "sign" %>
 		       <td>◯</td>
 		      <% else %>
 		       <td><%= history.result %></td>
