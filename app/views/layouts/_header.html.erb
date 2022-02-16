@@ -40,9 +40,6 @@
              <%= link_to icon('fas','sign-out-alt',"ログアウト"),destroy_admin_session_path, method: :delete,class: 'btn btn-outline-light mx-3 my-1'%>
            </li>
          <% else %>
-         <li class="nav-item">
-             <%= link_to icon('fas','fas fa-folder',"About"), homes_about_path,class: 'btn btn-outline-light mx-3 my-1' %>
-           </li>
            <li class="nav-item">
              <%= link_to icon('fas','user-plus',"新規登録"), new_customer_registration_path,class: 'btn btn-outline-light mx-3 my-1'%>
            </li>

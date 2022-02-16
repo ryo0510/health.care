@@ -1,9 +1,9 @@
 <section class="wrapper flex">
 	<div class="inner">
 		<% if params[:category_id] %>
-			<h2 class="section-ttl"><%= @category.name %>のコース一覧 </h2>
+			<h2 class="section-ttl"><i class="fas fa-clipboard-list"></i><%= @category.name %>のコース一覧 </h2>
 		<% else %>
-			<h2 class="section-ttl">コース一覧 </h2>
+			<h2 class="section-ttl"><i class="fas fa-clipboard-list"></i>コース一覧 </h2>
 		<% end %>
 		<h3 class="text-right">
 			 <%= link_to new_admin_course_path, class:"btn btn-outline-secondary" do %>
