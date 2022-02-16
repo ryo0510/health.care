@@ -1,24 +1,33 @@
-<table class="admin_items has_border">
-	<thead>
-		<tr>
-			<th>コースID</th>
-			<th>コース名</th>
-			<th>実施項目</th>
-			<th>目標日数</th>
-			<th>記録方法</th>
-			<th>カテゴリー</th>
-		</tr>
-	</thead>
-	<tbody>
-		<% courses.each do |course| %>
-			<tr>
-				<td class="text-center"><%= course.id %></td>
-				<td><%= link_to course.name, admin_course_path(course), class: "underline" %></td>
-				<td><%= course.working_item %></td>
-				<td><%= course.target_date %></td>
-				<td><%= course.way_i18n %></td>
-				<td><%= link_to course.category.name, admin_courses_path(category_id: course.category_id) %></td>
-			</tr>
-		<% end %>
-	</tbody>
-</table>
+<div class="row">
+  <% courses.each do |course| %>
+  <div class="col-sm-6 col-md-4 col-12">
+    <div class="card border-info mb-3">
+      <div class="card-header"><strong><%= course.name %></strong></div>
+      <div class="card-body">
+      	<table class="table table-bordered">
+      		<tr>
+      			<th style="width:20%">目標日数</th>
+      			<td><%= course.target_date %>日</td>
+      		</tr>
+      		<tr>
+      			<th>実施項目</th>
+      			<td><%= course.working_item %></td>
+      		</tr>
+      		<tr>
+      			<th>記録方法</th>
+      			<td><%= course.way_i18n %></td>
+      		</tr>
+      		<tr>
+      			<th>カテゴリー</th>
+      			<% if customer_signed_in? %>
+      			<td><%= link_to course.category.name, courses_path(category_id: course.category_id) %></td>
+      			<% else %>
+      			<td><%= link_to course.category.name, admin_courses_path(category_id: course.category_id) %></td>
+      			<% end %>
+      		</tr>
+      	</table>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>

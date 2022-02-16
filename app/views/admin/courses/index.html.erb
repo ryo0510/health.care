@@ -6,10 +6,12 @@
 			<h2 class="section-ttl">コース一覧 </h2>
 		<% end %>
 		<h3 class="text-right">
-			<%= link_to "+", new_admin_course_path, class: "new_admin_item" %>
+			 <%= link_to new_admin_course_path, class:"btn btn-outline-secondary" do %>
+        <i class="fas fa-plus fa-2x"></i>
+      <% end %>
 		</h3>
 		<% if @courses.first %> <!-- existsと同義、SQL1個分削減(?) -->
-			<%= render 'admin/courses/index', courses: @courses %>
+			<%= render 'index', courses: @courses %>
 		<% else %>
 			<h3>対応するコースはありませんでした。</h3>
 		<% end %>
