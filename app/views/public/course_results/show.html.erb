@@ -20,6 +20,9 @@
     <%= f.submit "新規登録", class: "btn btn-outline-primary" %>
   </div>
    <% end %>
+   <div class="alert alert-warning" role="alert">
+      <strong><%= @course_result.entry.course.target_date %>日中、<%= @course_result.histories.count %>日クリア</strong>
+　 </div>
 </div>
 
 
