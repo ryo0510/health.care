@@ -48,7 +48,7 @@ class Admin::CoursesController < ApplicationController
   private
 
   def course_params
-    params.require(:course).permit(:category_id, :name, :working_item, :target_date, :way)
+    params.require(:course).permit(:category_id, :name, :working_item, :working_item_second, :working_item_third, :target_date, :way)
   end
 
   def ensure_course
