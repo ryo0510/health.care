@@ -21,13 +21,13 @@
                   <%= entry.course.name %>
                 </td>
                 <td>
-                 <%= link_to "表示", course_path(entry.course), class:"btn-link" %>
+                 <%= link_to "表示", course_path(entry.course), class:"btn btn-outline-primary" %>
                 </td>
                 <td>
                  <%= entry.course.target_date %>日
                 </td>
                 <td>
-                 <%= link_to "表示", course_result_path(entry.course_result_ids), class: "btn-link" %>
+                 <%= link_to "表示", course_result_path(entry.course_result_ids), class: "btn btn-outline-primary" %>
                 </td>
              </tr>
              <% end %>

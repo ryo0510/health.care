@@ -32,7 +32,7 @@ class Public::SessionsController < Devise::SessionsController
     @customer = Customer.find_by(email: params[:customer][:email]) ##入力されたemailからアカウントを1件取得
     return if !@customer ## アカウントを取得できなかった場合、このメソッドを終了する
     if (@customer.valid_password?(params[:customer][:password])) && (@customer.is_deleted == true)
-      flash[:notice] = "このアカウントは退会済みです。新規登録を行ってください。"
+      flash[:alert] = "このアカウントは退会済みです。新規登録を行ってください。"
       redirect_to new_customer_registration_path
     end
   end

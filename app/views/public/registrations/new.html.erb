@@ -12,41 +12,41 @@
           <tr>
             <th>名前</th>
             <td class="sign-up-small-cell">(姓)</td>
-            <td><%= f.text_field :last_name, autfocus: true %></td>
+            <td><%= f.text_field :last_name, autfocus: true, class: "form-control" %></td>
             <td class="sign-up-small-cell">(名)</td>
-            <td><%= f.text_field :first_name, autfocus: true %></td>
+            <td><%= f.text_field :first_name, autfocus: true, class: "form-control" %></td>
           </tr>
           <tr>
             <th>フリガナ</th>
             <td class="sign-up-small-cell">(セイ)</td>
-            <td><%= f.text_field :last_name_kana, autfocus: true %></td>
+            <td><%= f.text_field :last_name_kana, autfocus: true, class: "form-control" %></td>
             <td class="sign-up-small-cell">(メイ)</td>
-            <td><%= f.text_field :first_name_kana, autfocus: true %></td>
+            <td><%= f.text_field :first_name_kana, autfocus: true, class: "form-control" %></td>
           </tr>
           <tr>
             <th>メールアドレス</th>
             <td class="sign-up-small-cell"></td>
-            <td><%= f.email_field :email, autfocus: true, autocomplete: "email" %></td>
+            <td><%= f.email_field :email, autfocus: true, autocomplete: "email", class: "form-control" %></td>
           </tr>
           <tr>
             <th>電話番号</th>
             <td class="sign-up-small-cell"></td>
-            <td><%= f.text_field :tel, autfocus: true %></td>
+            <td><%= f.text_field :tel, autfocus: true, class: "form-control" %></td>
           </tr>
           <tr>
             <th>住所</th>
             <td class="sign-up-small-cell"></td>
-            <td><%= f.text_field :address, autfocus: true %></td>
+            <td><%= f.text_field :address, autfocus: true, class: "form-control" %></td>
           </tr>
           <tr>
             <th>パスワード(6文字以上)</th>
             <td class="sign-up-small-cell"></td>
-            <td><%= f.password_field :password %></td>
+            <td><%= f.password_field :password, class: "form-control" %></td>
           </tr>
           <tr>
             <th>パスワード(確認用)</th>
             <td class="sign-up-small-sell"></td>
-            <td><%= f.password_field :password_confirmation, autocomplete: "current-password" %></td>
+            <td><%= f.password_field :password_confirmation, autocomplete: "current-password", class: "form-control" %></td>
           </tr>
         </tbody>
       </table>

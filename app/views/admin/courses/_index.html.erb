@@ -19,10 +19,10 @@
       		</tr>
       		<tr>
       			<th>カテゴリー</th>
-      			<% if customer_signed_in? %>
-      			<td><%= link_to course.category.name, courses_path(category_id: course.category_id) %></td>
-      			<% else %>
+      			<% if admin_signed_in? %>
       			<td><%= link_to course.category.name, admin_courses_path(category_id: course.category_id) %></td>
+      			<% else %>
+      			<td><%= link_to course.category.name, courses_path(category_id: course.category_id) %></td>
       			<% end %>
       		</tr>
       	</table>
