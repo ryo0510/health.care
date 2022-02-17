@@ -42,6 +42,8 @@ ActiveRecord::Schema.define(version: 2022_02_15_042226) do
     t.integer "category_id", null: false
     t.string "name", null: false
     t.text "working_item", null: false
+    t.text "working_item_second"
+    t.text "working_item_third"
     t.integer "target_date", null: false
     t.integer "way", null: false
     t.datetime "created_at", null: false
