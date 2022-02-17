@@ -13,14 +13,14 @@
         </tr>
         <tr>
           <th>実施項目</th>
-          <td><%= @course.working_item %></td>
+          <td><%= @course.working_item %><br><%= @course.working_item_second %><br><%= @course.working_item_third %></td>
         </tr>
         <tr>
           <th >カテゴリー</th>
           <td><%= @course.category.name %></td>
         </tr>
         <tr>
-          <th >実施日数</th>
+          <th >目標日数</th>
           <td><%= @course.target_date %> 日</td>
         </tr>
         <tr>
