@@ -1,10 +1,12 @@
-<h2><i class="fas fa-angle-double-left"></i><%= @course_result.entry.course.name %><i class="fas fa-angle-double-right"></i>コース結果登録</h2>
+<h2>
+  <i class="fas fa-angle-double-left"></i><%= @course_result.entry.course.name %><i class="fas fa-angle-double-right"></i>コース結果登録
+</h2>
 	<div class="row">
 	  <div class="col-6 col-md-4">
     <%= form_with(model:[@course_result, @history], local: true) do |f| %>
       <div class="form_group pt-4 pb-3">
         <% if @course_result.entry.course.way == "sign" %>
-        <%= f.radio_button :result, true %>
+        <%= f.radio_button :result, true, checked: true %>
           <%= f.label :result, "実施できた", value: true %>
         <% else %>
           <%= f.text_field :result, placeholder: "結果入力(数値)", class: "form-control" %>
@@ -17,12 +19,14 @@
         <%= f.text_field :memo, class: "form-control", placeholder: "メモ(空欄可)" %>
       </div>
   <div class="mb-3">
-    <%= f.submit "新規登録", class: "btn btn-outline-primary" %>
+    <%= f.submit "結果登録", class: "btn btn-outline-primary" %>
   </div>
    <% end %>
+  <h4>
    <div class="alert alert-warning" role="alert">
-      <strong><%= @course_result.entry.course.target_date %>日中、<%= @course_result.histories.count %>日クリア</strong>
+     <%= @course_result.entry.course.target_date %>日中、<strong><%= @course_result.histories.count %>日</strong>クリア
 　 </div>
+　 </h4>
 </div>
 
 

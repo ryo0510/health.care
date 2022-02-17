@@ -1,8 +1,23 @@
 <div class="row">
-    <div class="col-xs-12 mt-3">
- 　    <h4><i class="fas fa-address-book"></i>コース選択</h4>
+    <div class="col-xs-12">
+ 　    <h3><i class="fas fa-address-book"></i>コース選択</h3>
  　　</div>
    </div>
+<div class="mb-6">
+  <h4><i class="fas fa-crown"></i>人気コースランキング</h4>
+  <div class="row my-4">
+    <% @all_ranks.each.with_index(1) do |course, i| %>
+      <div class="py-0 col-md-4 col-12">
+        <h5>
+          <strong><i class="fas fa-angle-left"></i><%= i %>位<i class="fas fa-angle-right"></i>　<%= course.name %></strong>
+        </h5>
+        <h6>
+          参加人数　<%= course.entries.count %>人
+        </h6>
+      </div>
+    <% end %>
+  </div>
+</div>
    <div class="row">
      <div class="col-xs-12">
 

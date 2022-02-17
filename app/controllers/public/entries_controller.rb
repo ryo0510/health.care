@@ -1,6 +1,9 @@
 class Public::EntriesController < ApplicationController
   def new
     @entry = Entry.new
+
+    #ランキング(登録順)
+    @all_ranks = Course.create_all_ranks
   end
 
   def create
