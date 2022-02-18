@@ -9,6 +9,9 @@ Rails.application.routes.draw do
     resources :courses, except: [:destroy]
     resources :categories, only: [:index, :create, :edit, :update]
   end
+  devise_scope :admin do
+    post 'admins/guest_sign_in', to: 'admin/sessions#guest_sign_in'
+  end
 
   devise_for :customers,skip: [:passwords,], controllers: {
     registrations: "public/registrations",

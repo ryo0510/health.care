@@ -3,6 +3,12 @@
 class Admin::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
 
+  def guest_sign_in
+    admin = Admin.guest
+    sign_in admin
+    redirect_to admin_top_path, notice: 'ゲストでログインしました。'
+  end
+
   # GET /resource/sign_in
   # def new
   #   super

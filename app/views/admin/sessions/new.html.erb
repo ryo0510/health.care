@@ -15,6 +15,9 @@
             <%= f.submit "ログイン", class: "btn btn-outline-primary" %>
           </div>
           <% end %>
+          <div class="actions my-3 text-center">
+            <%= link_to 'ゲストログイン（閲覧用）', admins_guest_sign_in_path, class: "btn btn-secondary mb-3 sign_in", method: :post %>
+          </div>
       </div>
     </div>
   </div>
