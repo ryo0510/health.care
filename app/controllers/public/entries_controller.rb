@@ -7,6 +7,15 @@ class Public::EntriesController < ApplicationController
   end
 
   def create
+    @entry = Entry.new
+    @all_ranks = Course.create_all_ranks
+
+    # f = (params[:course_id])
+    # if not Entry.where(course_id: "#{f}").count >= 1
+    #   flash.now[:alert] = "登録済みのコースが含まれていた為、登録できませんでした。"
+    #   render "new" and return
+    # end
+
     #rejectで要素に空白があった場合、削除する
     converted_create_params = create_params[:course_id].reject { |v| v.empty? }.map(&:to_i)
     #データの一貫性を保つためトランザクション使用(どちらかの処理に異常があった場合、処理を中断しデータを保存しない)
