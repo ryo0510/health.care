@@ -7,11 +7,12 @@ class Admin::CategoriesController < ApplicationController
   end
 
   def create
+    @categories = Category.all
     @category = Category.new(category_params)
     if @category.save
       redirect_to admin_categories_path
     else
-      @categories = Category.all
+      flash.now[:alert] = "入力内容をご確認ください"
       render :index
     end
   end

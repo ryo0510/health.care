@@ -11,7 +11,8 @@ class Admin::CustomersController < ApplicationController
     if @customer.update(customer_params)
       redirect_to admin_customer_path(@customer)
     else
-      redirect_to request.referer
+      flash.now[:alert] = "入力内容をご確認ください"
+      render "edit"
     end
   end
 

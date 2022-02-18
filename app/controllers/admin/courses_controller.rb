@@ -24,7 +24,7 @@ class Admin::CoursesController < ApplicationController
       flash.now[:notice] = "コースを追加しました。"
       redirect_to admin_course_path(@course)
     else
-      flash.now[:alert] = "コースを追加できませんでした。"
+      flash.now[:alert] = "入力内容をご確認ください"
       render :new
     end
   end
