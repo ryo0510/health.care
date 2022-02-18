@@ -5,7 +5,9 @@
  　</div>
    <div class="row">
       <p>登録者情報</p>
-      <p><%= link_to "編集する",  customers_mypage_edit_path, class: "btn btn-outline-success ml-5" %></p>
+      <% if !(@customer.email == "guest@example.com") %>
+        <p><%= link_to "編集する",  customers_mypage_edit_path, class: "btn btn-outline-success ml-5" %></p>
+      <% end %>
       <table class="table">
         <tbody>
           <tr>

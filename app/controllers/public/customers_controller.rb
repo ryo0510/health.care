@@ -1,6 +1,7 @@
 class Public::CustomersController < ApplicationController
   before_action :authenticate_customer!
   before_action :set_current_customer
+  before_action :ensure_guest_customer, only: [:edit]
 
   def show
   end
@@ -31,6 +32,13 @@ class Public::CustomersController < ApplicationController
 
   def set_current_customer
     @customer = current_customer
+  end
+
+  def ensure_guest_customer
+    @customer = current_customer
+    if @customer.email == "guest@example.com"
+      redirect_to customers_mypage_path , alert: 'ゲストユーザーはプロフィール編集画面へ遷移できません。'
+    end
   end
 
   def customer_params

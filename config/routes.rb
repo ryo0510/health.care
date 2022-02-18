@@ -17,9 +17,13 @@ Rails.application.routes.draw do
     registrations: "public/registrations",
     sessions: 'public/sessions'
   }
+
+  devise_scope :customer do
+    post 'customers/guest_sign_in', to: 'public/sessions#guest_sign_in'
+  end
+
   scope module: :public do
     root to: "homes#top"
-    get 'homes/about' => 'homes#about'
 
     get 'customers/unsubscribe' => 'customers#unsubscribe', as: 'customers_unsubscribe'
     patch 'customers/withdraw' => 'customers#withdraw', as: 'customers_withdraw'

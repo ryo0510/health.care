@@ -20,6 +20,7 @@
           <div>
             <h6 class="text-center font-weight-bold">会員登録がお済みでない方</h6>
             <p class="text-center"><%= link_to "こちら", new_customer_registration_path %>から会員登録ができます。</p>
+            <p><%= link_to 'ゲストログイン（閲覧用）', customers_guest_sign_in_path, class: "btn btn-secondary btn-sm btn-block mb-3 sign_in", method: :post %></p>
           </div>
       </div>
     </div>
