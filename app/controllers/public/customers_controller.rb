@@ -24,7 +24,7 @@ class Public::CustomersController < ApplicationController
   def withdraw
     @customer.update(is_deleted: true) #falseからtrueにupdate
     reset_session #ページ遷移しても以前入力した情報を保持することができる機能のことをsessionという
-    redirect_to root_path
+    redirect_to root_path, notice: "退会処理が完了しました"
   end
 
   private

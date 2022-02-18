@@ -5,7 +5,7 @@ class Public::PostMessagesController < ApplicationController
   end
 
   def create
-    @post_messages = PostMessage.all
+    @post_messages = PostMessage.all.order(created_at: :desc).page(params[:page]).per(15)
     @post_message = PostMessage.new(post_message_params)
     @post_message.customer_id = current_customer.id
     @post_message.save
