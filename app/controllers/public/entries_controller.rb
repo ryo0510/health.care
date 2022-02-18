@@ -1,4 +1,6 @@
 class Public::EntriesController < ApplicationController
+  before_action :authenticate_customer!
+  
   def new
     @entry = Entry.new
 

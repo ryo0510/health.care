@@ -1,6 +1,7 @@
 class Admin::CustomersController < ApplicationController
   before_action :ensure_customer
   before_action :ensure_guest_customer, only: [:edit]
+  before_action :authenticate_admin!
 
   def show
   end

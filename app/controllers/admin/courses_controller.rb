@@ -1,5 +1,6 @@
 class Admin::CoursesController < ApplicationController
   before_action :ensure_course, only: [:show, :edit, :update]
+  before_action :authenticate_admin!
 
   def new
     @course = Course.new

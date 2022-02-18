@@ -43,7 +43,7 @@
              <%= link_to icon('fas','user-circle',"会員一覧"), admin_top_path, class:'btn btn-outline-light mx-3 my-1'%>
            </li>
            <li class="nav-item">
-             <%= link_to icon('fas','fa-clipboard-list',"コース"), admin_courses_path, class:'btn btn-outline-light mx-3 my-1'%>
+             <%= link_to icon('fas','fas fa-clipboard-list',"コース"), admin_courses_path, class:'btn btn-outline-light mx-3 my-1'%>
            </li>
            <li class="nav-item">
              <%= link_to icon('fas','fas fa-folder',"カテゴリー"), admin_categories_path, class:'btn btn-outline-light mx-3 my-1'%>
@@ -57,6 +57,9 @@
            </li>
            <li class="nav-item">
              <%= link_to icon('fas','sign-in-alt',"ログイン"), new_customer_session_path,class: 'btn btn-outline-light mx-3 my-1'%>
+           </li>
+           <li class="nav-item">
+             <%= link_to icon('fas','fas fa-clipboard-list',"コース一覧"), courses_path, class:'btn btn-outline-light mx-3 my-1'%>
            </li>
           <% end %>
         </ul>

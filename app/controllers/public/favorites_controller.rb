@@ -1,4 +1,6 @@
 class Public::FavoritesController < ApplicationController
+  before_action :authenticate_customer!
+  
   def create
     @post_message = PostMessage.find(params[:post_message_id])
     favorite = @post_message.favorites.new(customer_id: current_customer.id)

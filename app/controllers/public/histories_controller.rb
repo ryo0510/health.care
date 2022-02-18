@@ -1,4 +1,6 @@
 class Public::HistoriesController < ApplicationController
+  before_action :authenticate_customer!
+  
   def create
     course_result = CourseResult.find(params[:course_result_id])
     history = current_customer.histories.new(history_params)
@@ -7,6 +9,7 @@ class Public::HistoriesController < ApplicationController
     @course_result = CourseResult.find(params[:course_result_id])
     @history = History.new
     @histories = @course_result.histories.order("start_time DESC").page(params[:page]).per(5)
+    Date.beginning_of_week = :sunday #日曜日から始まり(カレンダー)
 
     if history.save
       redirect_to course_result_path(course_result)
