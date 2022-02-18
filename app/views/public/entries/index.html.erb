@@ -36,6 +36,7 @@
              <%= link_to "コース選択に戻る", new_entry_path, class: "btn btn-sm btn-primary" %>
              <% else %>
              <p>登録コースがありません</p>
+             <p><%= link_to "こちら", new_entry_path, class:"btn-link" %>からコースを登録できます。</p>
              <% end %>
            </div>
          </div>
