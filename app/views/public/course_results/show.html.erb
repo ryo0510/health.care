@@ -9,14 +9,14 @@
         <%= f.radio_button :result, true, checked: true %>
           <%= f.label :result, "実施できた", value: true %>
         <% else %>
-          <%= f.text_field :result, placeholder: "結果入力(数値)", class: "form-control" %>
+          <%= f.number_field :result, step: "0.1", class: "form-control" %>kg
         <% end %>
       </div>
       <div class ="form-group">
         <%= f.date_select :start_time %>
       </div>
       <div class="form-group" >
-        <%= f.text_field :memo, class: "form-control", placeholder: "メモ(空欄可)" %>
+        <%= f.text_area :memo, class: "form-control", placeholder: "メモ(空欄可)" %>
       </div>
   <div class="mb-3">
     <%= f.submit "結果登録", class: "btn btn-outline-primary" %>
@@ -38,7 +38,7 @@
 		      <% if @course_result.entry.course.way == "sign" %>
 		       <i class="far fa-check-circle"></i>
 		      <% else %>
-		       <%= history.result %>
+		       <%= history.result %>kg
 		      <% end %>
 		    </div>
 		  <% end %>
@@ -62,7 +62,7 @@
 						<% if @course_result.entry.course.way == "sign" %>
 		       <td>◯</td>
 		      <% else %>
-		       <td><%= history.result %></td>
+		       <td><%= history.result %>kg</td>
 		      <% end %>
 						<td><%= history.memo %></td>
 						<td><%= link_to "削除", course_result_history_path(history.course_result, history), method: :delete %></td>
@@ -72,3 +72,52 @@
   		</table>
   		<%= paginate @histories %>
   		<% end %>
+<% if @course_result.entry.course.way == "number" %>
+<canvas id="myLineChart"></canvas>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    $(document).on('turbolinks:load', function () {
+      var ctx = document.getElementById("myLineChart");
+      var myLineChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: ['6日前', '5日前', '4日前', '3日前', '2日前', '1日前', '今日'],
+          datasets: [
+            {
+              label: '数値の推移',
+              data: [<%= @course_result.histories.created_6day_ago %>,
+                     <%= @course_result.histories.created_5day_ago %>,
+                     <%= @course_result.histories.created_4day_ago %>,
+                     <%= @course_result.histories.created_3day_ago %>,
+                     <%= @course_result.histories.created_2day_ago %>,
+                     <%= @course_result.histories.created_yesterday %>,
+                     <%= @course_result.histories.created_today %>],
+              borderColor: "rgba(0,0,255,1)",
+              backgroundColor: "rgba(0,0,0,0)"
+            }
+          ],
+        },
+        options: {
+          plugins: {
+            title: {
+              display: true,
+              text: '7日間の数値の比較'
+            }
+          },
+          scales: {
+            yAxes: [{
+              ticks: {
+                suggestedMax: 10,
+                suggestedMin: 0,
+                stepSize: 1,
+                callback: function(value, index, values){
+                  return  value
+                }
+              }
+            }]
+          },
+        }
+      });
+ });
+  </script>
+<% end %>
