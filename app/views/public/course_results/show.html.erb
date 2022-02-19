@@ -84,7 +84,7 @@
           datasets: [
             {
               label: '数値の推移',
-              data: [12, 19, 3, 5, 2, 3],
+              data: [<%= @course_result.histories.created_6day_ago.result %>, <%= @course_result.histories.created_5day_ago.result %>, <%= @course_result.histories.created_4day_ago.result %>, <%= @course_result.histories.created_3day_ago.result %>, <%= @course_result.histories.created_2day_ago.result %>, <%= @course_result.histories.created_yesterday.result %>, <%= @course_result.histories.created_today.result %>],
               borderColor: "rgba(0,0,255,1)",
               backgroundColor: "rgba(0,0,0,0)"
             }
