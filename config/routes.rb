@@ -39,7 +39,7 @@ Rails.application.routes.draw do
         get 'search'
       end
     end
-    resources :entries, only: [:new, :create, :index]
+    resources :entries, only: [:new, :create, :index, :destroy]
     resources :course_results, only: [:show] do
       resources :histories, only: [:create, :destroy]
     end

@@ -14,7 +14,6 @@ class Public::EntriesController < ApplicationController
 
     #rejectで要素に空白があった場合、削除する
     entries = (params[:entry][:course_id]).compact.reject(&:empty?)
-
     if Entry.where(course_id: entries).where(customer_id: current_customer.id).count >= 1
       flash.now[:alert] = "登録済みのコースが含まれていた為、登録できませんでした。"
       render "new"
@@ -35,6 +34,12 @@ class Public::EntriesController < ApplicationController
 
   def index
     @entries = current_customer.entries.all
+  end
+
+  def destroy
+    entry = Entry.find(params[:id])
+    entry.destroy
+    redirect_to request.referer, notice: '削除しました'
   end
 
   private

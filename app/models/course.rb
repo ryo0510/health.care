@@ -3,7 +3,7 @@ class Course < ApplicationRecord
   has_many :entries, dependent: :destroy
 
   enum way: { sign: 0, number: 1 }
-  
+
   validates :name, presence: true, uniqueness: true, length: { maximum: 15 }
   validates :category_id, presence: true
   validates :working_item, presence: true

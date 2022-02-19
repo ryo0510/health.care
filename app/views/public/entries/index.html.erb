@@ -11,9 +11,9 @@
             <table class="table table-hover table-bordered mb-3 text-left">
               <tr class="table-secondary">
                 <th id="items" style="width:30%">登録コース</th>
-                <th id="items" style="width:15%">コースの説明</th>
-                <th id="items" style="width:20%">コース目標日数</th>
-                <th id="items" style="width:20%">記録</th>
+                <th id="items" style="width:10%">コースの説明</th>
+                <th id="items" style="width:10%">記録</th>
+                <th id="items" style="width:10%"></th>
               </tr>
               <% @entries.each do |entry| %>
               <tr>
@@ -24,10 +24,10 @@
                  <%= link_to "表示", course_path(entry.course), class:"btn btn-outline-primary" %>
                 </td>
                 <td>
-                 <%= entry.course.target_date %>日
+                 　<%= link_to "表示", course_result_path(entry.course_result_ids), class: "btn btn-outline-primary" %>
                 </td>
                 <td>
-                 <%= link_to "表示", course_result_path(entry.course_result_ids), class: "btn btn-outline-primary" %>
+                 <%= link_to "削除する" , entry_path(entry) ,method: :delete, class:"btn btn-outline-danger", data: {confirm: "削除しますか？これまでの記録も閲覧できなくなります。"} %>
                 </td>
              </tr>
              <% end %>
