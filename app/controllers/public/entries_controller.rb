@@ -1,6 +1,6 @@
 class Public::EntriesController < ApplicationController
   before_action :authenticate_customer!
-  
+
   def new
     @entry = Entry.new
 
@@ -12,11 +12,14 @@ class Public::EntriesController < ApplicationController
     @entry = Entry.new
     @all_ranks = Course.create_all_ranks
 
-    # f = (params[:course_id])
-    # if not Entry.where(course_id: "#{f}").count >= 1
-    #   flash.now[:alert] = "登録済みのコースが含まれていた為、登録できませんでした。"
-    #   render "new" and return
-    # end
+    #rejectで要素に空白があった場合、削除する
+    entries = (params[:entry][:course_id]).compact.reject(&:empty?)
+
+    if Entry.where(course_id: entries).where(customer_id: current_customer.id).count >= 1
+      flash.now[:alert] = "登録済みのコースが含まれていた為、登録できませんでした。"
+      render "new"
+      return
+    end
 
     #rejectで要素に空白があった場合、削除する
     converted_create_params = create_params[:course_id].reject { |v| v.empty? }.map(&:to_i)
