@@ -9,7 +9,7 @@
         <%= f.radio_button :result, true, checked: true %>
           <%= f.label :result, "実施できた", value: true %>
         <% else %>
-          <%= f.number_field :result, step: "0.1", class: "form-control" %>kg
+          <%= f.number_field :result, step: "0.1", class: "form-control", placeholder: "小数点第1位まで可" %>kg
         <% end %>
       </div>
       <div class ="form-group">
