@@ -4,7 +4,7 @@ class Public::EntriesController < ApplicationController
   def new
     @entry = Entry.new
 
-    #ランキング(登録順)
+    #ランキング(モデルにメソッド記載)
     @all_ranks = Course.create_all_ranks
   end
 
