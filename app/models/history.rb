@@ -5,12 +5,12 @@ class History < ApplicationRecord
   validates :customer_id, presence: true
   validates :course_result_id, presence: true
   validates :result, presence: true
-  validates :memo, length: { maximum: 140 } 
+  validates :memo, length: { maximum: 140 }
   validates :start_time, presence: true, uniqueness: { scope: :course_result } #1つのcourse_result.idでのみ適用
 
   def self.created_today
     time = find_by(start_time: Time.zone.now.midnight..Time.zone.now.end_of_day) #今日
-    time.nil? ? 0 : time.result #三項演算子使用(resがnilの場合左辺を返し、それ以外は右辺を返す)
+    time.nil? ? 0 : time.result #三項演算子使用(timがnilの場合左辺を返し、それ以外は右辺を返す)
   end
 
   def self.created_yesterday
@@ -42,5 +42,5 @@ class History < ApplicationRecord
     time = find_by(start_time: 6.day.ago.midnight..6.day.ago.end_of_day)  #6日前
     time.nil? ? 0 : time.result
   end
-  
+
 end
