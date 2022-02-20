@@ -1,6 +1,6 @@
-<h2>
+<h3 class="title">
   <i class="fas fa-angle-double-left"></i><%= @course_result.entry.course.name %><i class="fas fa-angle-double-right"></i>コース結果登録
-</h2>
+</h3>
 	<div class="row">
 	  <div class="col-6 col-md-4">
     <%= form_with(model:[@course_result, @history], local: true) do |f| %>
@@ -65,7 +65,7 @@
 		       <td><%= history.result %>kg</td>
 		      <% end %>
 						<td><%= history.memo %></td>
-						<td><%= link_to "削除", course_result_history_path(history.course_result, history), method: :delete %></td>
+						<td><%= link_to "削除", course_result_history_path(history.course_result, history), method: :delete, class:"btn btn-outline-danger" %></td>
 					</tr>
 				</tbody>
 			<% end %>

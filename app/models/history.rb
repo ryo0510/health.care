@@ -10,7 +10,7 @@ class History < ApplicationRecord
 
   def self.created_today
     time = find_by(start_time: Time.zone.now.midnight..Time.zone.now.end_of_day) #今日
-    time.nil? ? 0 : time.result #三項演算子使用(timがnilの場合左辺を返し、それ以外は右辺を返す)
+    time.nil? ? 0 : time.result #三項演算子使用(timeがnilの場合左辺を返し、それ以外は右辺を返す)
   end
 
   def self.created_yesterday
