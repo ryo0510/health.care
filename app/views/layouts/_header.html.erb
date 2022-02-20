@@ -1,5 +1,6 @@
 <header class="shadow-sm">
   <nav class="navbar navbar-expand-lg navbar-light">
+    
     <%= form_with url: search_courses_path, local: true, method: :get do |f| %>
      <div class="row">
         <div class="col"><%= f.text_field :keyword, class: "form-control ", placeholder:"コース名" %> </div>
@@ -7,9 +8,9 @@
       </div>
     <% end %>
 
-      <div class="collapse navbar-collapse justify-content-end">
-        <ul class="navbar-nav">
-         <% if customer_signed_in? %>
+    <div class="collapse navbar-collapse justify-content-end">
+      <ul class="navbar-nav">
+        <% if customer_signed_in? %>
           <li class="nav-item active">
            <span class="nav-link text-dark">ようこそ、<%= current_customer.last_name%>さん</span>
           </li>
@@ -38,32 +39,31 @@
           <li class="nav-item">
             <%= link_to icon('fas','sign-out-alt',"ログアウト"), destroy_customer_session_path, method: :delete ,class: 'btn btn-outline-light mx-3 my-1'%>
           </li>
-         <% elsif admin_signed_in? %>
-           <li class="nav-item">
-             <%= link_to icon('fas','user-circle',"会員一覧"), admin_top_path, class:'btn btn-outline-light mx-3 my-1'%>
-           </li>
-           <li class="nav-item">
-             <%= link_to icon('fas','fas fa-clipboard-list',"コース"), admin_courses_path, class:'btn btn-outline-light mx-3 my-1'%>
-           </li>
-           <li class="nav-item">
-             <%= link_to icon('fas','fas fa-folder',"カテゴリー"), admin_categories_path, class:'btn btn-outline-light mx-3 my-1'%>
-           </li>
-           <li class="nav-item">
-             <%= link_to icon('fas','sign-out-alt',"ログアウト"),destroy_admin_session_path, method: :delete,class: 'btn btn-outline-light mx-3 my-1'%>
-           </li>
-         <% else %>
-           <li class="nav-item">
-             <%= link_to icon('fas','user-plus',"新規登録"), new_customer_registration_path,class: 'btn btn-outline-light mx-3 my-1'%>
-           </li>
-           <li class="nav-item">
-             <%= link_to icon('fas','sign-in-alt',"ログイン"), new_customer_session_path,class: 'btn btn-outline-light mx-3 my-1'%>
-           </li>
-           <li class="nav-item">
-             <%= link_to icon('fas','fas fa-clipboard-list',"コース一覧"), courses_path, class:'btn btn-outline-light mx-3 my-1'%>
-           </li>
-          <% end %>
-        </ul>
-      </div>
-
- </nav>
+        <% elsif admin_signed_in? %>
+          <li class="nav-item">
+            <%= link_to icon('fas','user-circle',"会員一覧"), admin_top_path, class:'btn btn-outline-light mx-3 my-1'%>
+          </li>
+          <li class="nav-item">
+            <%= link_to icon('fas','fas fa-clipboard-list',"コース"), admin_courses_path, class:'btn btn-outline-light mx-3 my-1'%>
+          </li>
+          <li class="nav-item">
+            <%= link_to icon('fas','fas fa-folder',"カテゴリー"), admin_categories_path, class:'btn btn-outline-light mx-3 my-1'%>
+          </li>
+          <li class="nav-item">
+            <%= link_to icon('fas','sign-out-alt',"ログアウト"),destroy_admin_session_path, method: :delete,class: 'btn btn-outline-light mx-3 my-1'%>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to icon('fas','user-plus',"新規登録"), new_customer_registration_path,class: 'btn btn-outline-light mx-3 my-1'%>
+          </li>
+          <li class="nav-item">
+            <%= link_to icon('fas','sign-in-alt',"ログイン"), new_customer_session_path,class: 'btn btn-outline-light mx-3 my-1'%>
+          </li>
+          <li class="nav-item">
+            <%= link_to icon('fas','fas fa-clipboard-list',"コース一覧"), courses_path, class:'btn btn-outline-light mx-3 my-1'%>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
 </header>

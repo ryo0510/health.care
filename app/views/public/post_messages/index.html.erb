@@ -1,4 +1,5 @@
 <h3 calss="pt-5"><i class="fas fas fa-file-signature"></i>掲示板</h3>
+
 <div class="row g-0">
   <div class="col-6 col-md-4">
     <%= render "form" %>
@@ -13,20 +14,19 @@
     </div>
   </div>
 </div>
-<div>
-  <table class="post_messages table table-hover table-bordered">
-    <thead>
-       <tr class="table-secondary">
-        <th style="width:15%">ニックネーム</th>
-        <th style="width:50%">メッセージ</th>
-        <th style="width:10%">投稿日時</th>
-        <th style="width:15%">画像</th>
-        <th style="width:10%">いいね</th>
-      </tr>
-    </thead>
-    <tbody id="messages">
-      <%= render 'index', post_messages: @post_messages %>
-    </tbody>
-  </table>
-  <%= paginate @post_messages %>
-</div>
+
+<table class="post_messages table table-hover table-bordered">
+  <thead>
+    <tr class="table-secondary">
+      <th style="width:15%">ニックネーム</th>
+      <th style="width:50%">メッセージ</th>
+      <th style="width:10%">投稿日時</th>
+      <th style="width:15%">画像</th>
+      <th style="width:10%">いいね</th>
+    </tr>
+  </thead>
+  <tbody id="messages">
+    <%= render 'index', post_messages: @post_messages %>
+  </tbody>
+</table>
+<%= paginate @post_messages %>

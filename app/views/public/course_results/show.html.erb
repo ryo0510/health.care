@@ -1,7 +1,9 @@
 <h3 class="title">
   <i class="fas fa-angle-double-left"></i><%= @course_result.entry.course.name %><i class="fas fa-angle-double-right"></i>コース結果登録
 </h3>
+
 <div class="row">
+  
   <div class="col-6 col-md-4">
     <%= form_with(model:[@course_result, @history], local: true) do |f| %>
       <div class="form_group pt-4 pb-3">
@@ -28,9 +30,11 @@
       </div>
 　  </h4>
   </div>
+  
   <div class="calendar ol-sm-6 col-md-8">
 		<%= render "calendar", course_result: @course_result %>
 	</div>
+	
 </div>
 
 <% if @histories.present? %>

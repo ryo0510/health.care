@@ -1,36 +1,36 @@
 <div class="row">
-　　  <div class="col-xs-12 mt-3">
- 　　  　  <h4><i class="fas fa-user-circle"></i>マイページ</h4>
- 　  　</div>
- 　</div>
-   <div class="row">
-      <p>登録者情報</p>
-      <% if !(@customer.email == "guest@example.com") %>
-        <p><%= link_to "編集する",  customers_mypage_edit_path, class: "btn btn-outline-success ml-5" %></p>
-      <% end %>
-      <table class="table">
-        <tbody>
-          <tr>
-            <td>氏名</td>
-            <td><%= @customer.full_name %></td>
-          </tr>
-          <tr>
-            <td>カナ</td>
-            <td><%= @customer.full_name_kana %></td>
-          </tr>
-          <tr>
-            <td>住所</td>
-            <td><%= @customer.address %></td>
-          </tr>
-          <tr>
-            <td>電話番号</td>
-            <td><%= @customer.tel %></td>
-          </tr>
-          <tr>
-            <td>メールアドレス</td>
-            <td><%= @customer.email %></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+  <div class="col-xs-12 mt-3">
+    <h4><i class="fas fa-user-circle"></i>マイページ</h4>
+　</div>
+</div>
+
+<div class="row">
+  <p>登録者情報</p>
+  <% if !(@customer.email == "guest@example.com") %>
+    <p><%= link_to "編集する",  customers_mypage_edit_path, class: "btn btn-outline-success ml-5" %></p>
+  <% end %>
+  <table class="table">
+    <tbody>
+      <tr>
+        <td>氏名</td>
+        <td><%= @customer.full_name %></td>
+      </tr>
+      <tr>
+        <td>カナ</td>
+        <td><%= @customer.full_name_kana %></td>
+      </tr>
+      <tr>
+        <td>住所</td>
+        <td><%= @customer.address %></td>
+      </tr>
+      <tr>
+        <td>電話番号</td>
+        <td><%= @customer.tel %></td>
+      </tr>
+      <tr>
+        <td>メールアドレス</td>
+        <td><%= @customer.email %></td>
+      </tr>
+    </tbody>
+  </table>
 </div>
