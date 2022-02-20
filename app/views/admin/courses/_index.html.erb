@@ -1,39 +1,39 @@
 <div class="row">
   <% courses.each do |course| %>
-  <div class="col-sm-6 col-md-4 col-12">
-    <div class="card border-info mb-3">
-      <% if admin_signed_in? %>
-        <div class="card-header"><strong><%= link_to course.name, admin_course_path(course) %></strong></div>
-      <% else %>
-      	<div class="card-header"><strong><%= course.name %></strong></div>
-      <% end %>
-      <div class="card-body">
-      	<table class="table table-bordered">
-      		<tr>
-      			<th style="width:20%">目標日数</th>
-      			<td><%= course.target_date %>日</td>
-      		</tr>
-      		<tr>
-      			<th>実施項目</th>
-      			<td>
-      			  <%= course.working_item %><br><%= course.working_item_second %><br><%= course.working_item_third %>
-      			 </td>
-      		</tr>
-      		<tr>
-      			<th>記録方法</th>
-      			<td><%= course.way_i18n %></td>
-      		</tr>
-      		<tr>
-      			<th>カテゴリー</th>
-      			<% if admin_signed_in? %>
-      			<td><%= link_to course.category.name, admin_courses_path(category_id: course.category_id) %></td>
-      			<% else %>
-      			<td><%= link_to course.category.name, courses_path(category_id: course.category_id) %></td>
-      			<% end %>
-      		</tr>
-      	</table>
+    <div class="col-sm-6 col-md-4 col-12">
+      <div class="card border-info mb-3">
+        <% if admin_signed_in? %>
+          <div class="card-header"><strong><%= link_to course.name, admin_course_path(course) %></strong></div>
+        <% else %>
+      	  <div class="card-header"><strong><%= course.name %></strong></div>
+        <% end %>
+        <div class="card-body">
+      	  <table class="table table-bordered">
+      		  <tr>
+      			  <th style="width:20%">目標日数</th>
+      			  <td><%= course.target_date %>日</td>
+      		  </tr>
+      		  <tr>
+      			  <th>実施項目</th>
+      			  <td>
+      			    <%= course.working_item %><br><%= course.working_item_second %><br><%= course.working_item_third %>
+      			   </td>
+      		  </tr>
+      		  <tr>
+      			  <th>記録方法</th>
+      			  <td><%= course.way_i18n %></td>
+      		  </tr>
+      		  <tr>
+      			  <th>カテゴリー</th>
+      			  <% if admin_signed_in? %>
+      			    <td><%= link_to course.category.name, admin_courses_path(category_id: course.category_id) %></td>
+      			  <% else %>
+      			    <td><%= link_to course.category.name, courses_path(category_id: course.category_id) %></td>
+      			  <% end %>
+      		  </tr>
+      	  </table>
+        </div>
       </div>
     </div>
-  </div>
   <% end %>
 </div>

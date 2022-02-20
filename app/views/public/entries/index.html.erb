@@ -1,45 +1,41 @@
-<div class="container col-xs-6">
-    <div class="row">
-　　  <div class="col-xs-12 mt-3">
- 　　   　<h3><i class="fas fa-clipboard-list"></i>登録コース一覧</h3>
- 　  　</div>
-  　</div>
-    <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-        <% if @entries.present? %>
-          <div class="text-right my-2">
-            <table class="table table-hover table-bordered mb-3 text-left">
-              <tr class="table-secondary">
-                <th id="items" style="width:30%">登録コース</th>
-                <th id="items" style="width:10%">コースの説明</th>
-                <th id="items" style="width:10%">記録</th>
-                <th id="items" style="width:10%"></th>
-              </tr>
-              <% @entries.each do |entry| %>
-              <tr>
-                <td>
-                  <%= entry.course.name %>
-                </td>
-                <td>
-                 <%= link_to "表示", course_path(entry.course), class:"btn btn-outline-primary" %>
-                </td>
-                <td>
-                 　<%= link_to "表示", course_result_path(entry.course_result_ids), class: "btn btn-outline-primary" %>
-                </td>
-                <td>
-                 <%= link_to "削除する" , entry_path(entry) ,method: :delete, class:"btn btn-outline-danger", data: {confirm: "削除しますか？これまでの記録も閲覧できなくなります。"} %>
-                </td>
-             </tr>
-             <% end %>
-           </table>
-           <div class="text-center mb-5">
-             <%= link_to "コース選択に戻る", new_entry_path, class: "btn btn-sm btn-primary" %>
-             <% else %>
-             <p>登録コースがありません</p>
-             <p><%= link_to "こちら", new_entry_path, class:"btn-link" %>からコースを登録できます。</p>
-             <% end %>
-           </div>
-         </div>
+<div class="row">
+  <div class="col-xs-12 mt-3">
+    <h3><i class="fas fa-clipboard-list"></i>登録コース一覧</h3>
+　</div>
+</div>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+    <% if @entries.present? %>
+      <table class="table table-hover table-bordered mb-3 text-left">
+        <tr class="table-secondary">
+          <th id="items" style="width:30%">登録コース</th>
+          <th id="items" style="width:10%">コースの説明</th>
+          <th id="items" style="width:10%">記録</th>
+          <th id="items" style="width:10%"></th>
+        </tr>
+        <% @entries.each do |entry| %>
+          <tr>
+            <td>
+              <%= entry.course.name %>
+            </td>
+            <td>
+              <%= link_to "表示", course_path(entry.course), class:"btn btn-outline-primary" %>
+            </td>
+            <td>
+              <%= link_to "表示", course_result_path(entry.course_result_ids), class: "btn btn-outline-primary" %>
+            </td>
+            <td>
+              <%= link_to "削除する" , entry_path(entry) ,method: :delete, class:"btn btn-outline-danger", data: {confirm: "削除しますか？これまでの記録も閲覧できなくなります。"} %>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+      <div class="text-center mb-5">
+        <%= link_to "コース選択に戻る", new_entry_path, class: "btn btn-sm btn-primary" %>
       </div>
-    </div>
+    <% else %>
+      <p>登録コースがありません</p>
+      <p><%= link_to "こちら", new_entry_path, class:"btn-link" %>からコースを登録できます。</p>
+    <% end %>
   </div>
+</div>

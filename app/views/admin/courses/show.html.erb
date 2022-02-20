@@ -1,38 +1,38 @@
 <div class="row">
-　　<div class="col-xs-12 mt-3">
- 　　　<h4><i class="fas fa-clipboard-list"></i>コース詳細</h4>
- 　　</div>
- 　</div>
+  <div class="col-xs-12 mt-3">
+  　<h4><i class="fas fa-clipboard-list"></i>コース詳細</h4>
+　</div>
+</div>
 
-    <div class="row align-courses-center m-5">
-    <div class="col-lg">
-      <table class="table course-table">
-        <tr>
-          <th nowrap>コース名</th>
-          <td><%= @course.name %></td>
-        </tr>
-        <tr>
-          <th nowrap>実施項目</th>
-          <td>
-            <%= @course.working_item %><br><%= @course.working_item_second %><br><%= @course.working_item_third %>
-          </td>
-        </tr>
-        <tr>
-          <th nowrap>カテゴリー</th>
-          <td><%= @course.category.name %></td>
-        </tr>
-        <tr>
-          <th nowrap>目標日数</th>
-          <td><%= @course.target_date %> 日</td>
-        </tr>
-        <tr>
-          <th nowrap>記録方法</th>
-          <td><%= @course.way_i18n %></td>
-        </tr>
-      </table>
-      <div class="d-flex justify-content-around">
-        <p><%= link_to "編集する",edit_admin_course_path(@course), class:"btn btn-success" %></p>
-        <p><%= link_to "コース一覧", admin_courses_path, class:"btn btn-outline-secondary" %></p>
-      </div>
+<div class="row align-courses-center m-5">
+  <div class="col-lg">
+    <table class="table course-table">
+      <tr>
+        <th nowrap>コース名</th>
+        <td><%= @course.name %></td>
+      </tr>
+      <tr>
+        <th nowrap>実施項目</th>
+        <td>
+          <%= @course.working_item %><br><%= @course.working_item_second %><br><%= @course.working_item_third %>
+        </td>
+      </tr>
+      <tr>
+        <th nowrap>カテゴリー</th>
+        <td><%= @course.category.name %></td>
+      </tr>
+      <tr>
+        <th nowrap>目標日数</th>
+        <td><%= @course.target_date %> 日</td>
+      </tr>
+      <tr>
+        <th nowrap>記録方法</th>
+        <td><%= @course.way_i18n %></td>
+      </tr>
+    </table>
+    <div class="d-flex justify-content-around">
+      <p><%= link_to "編集する",edit_admin_course_path(@course), class:"btn btn-success" %></p>
+      <p><%= link_to "コース一覧", admin_courses_path, class:"btn btn-outline-secondary" %></p>
     </div>
   </div>
+</div>

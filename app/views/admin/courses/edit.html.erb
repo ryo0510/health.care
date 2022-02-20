@@ -1,12 +1,12 @@
 <div class="row">
-　　<div class="col-xs-12 mt-3">
- 　　　<h4><i class="fas fa-pen"></i> コース詳細編集</h4>
- 　　</div>
- 　</div>
+  <div class="col-xs-12 mt-3">
+  　<h4><i class="fas fa-pen"></i> コース詳細編集</h4>
+　</div>
+</div>
 
- <div class="row">
-    <div class="col-8 offset-2 md-5">
-      <%= form_with model: @course, url: admin_course_path, local: true do |f| %>
+<div class="row">
+  <div class="col-8 offset-2 md-5">
+    <%= form_with model: @course, url: admin_course_path, local: true do |f| %>
       <table>
         <tr>
           <div class="form-group">
@@ -57,6 +57,6 @@
           </div>
         </tr>
       </table>
-      <% end %>
-    </div>
+    <% end %>
   </div>
+</div>

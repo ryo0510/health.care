@@ -1,16 +1,17 @@
+<% if params[:category_id] %>
+	<h3><i class="fas fa-clipboard-list"></i><%= @category.name %>のコース一覧 </h3>
+<% else %>
+	<h3><i class="fas fa-clipboard-list"></i>コース一覧 </h>
+<% end %>
 
-		<% if params[:category_id] %>
-			<h3><i class="fas fa-clipboard-list"></i><%= @category.name %>のコース一覧 </h3>
-		<% else %>
-			<h3><i class="fas fa-clipboard-list"></i>コース一覧 </h>
-		<% end %>
-		<h4 class="text-right">
-			 <%= link_to new_admin_course_path, class:"btn btn-outline-secondary" do %>
-        <i class="fas fa-plus fa-2x"></i>
-      <% end %>
-		</h4>
-		<% if @courses.first %> <!-- existsと同義、SQL1個分削減(?) -->
-			<%= render 'index', courses: @courses %>
-		<% else %>
-			<h3>対応するコースはありませんでした。</h3>
-		<% end %>
+<h4 class="text-right">
+	<%= link_to new_admin_course_path, class:"btn btn-outline-secondary" do %>
+    <i class="fas fa-plus fa-2x"></i>
+  <% end %>
+</h4>
+
+<% if @courses.first %> <!-- existsと同義、SQL1個分削減(?) -->
+	<%= render 'index', courses: @courses %>
+<% else %>
+	<h3>対応するコースはありませんでした。</h3>
+<% end %>
