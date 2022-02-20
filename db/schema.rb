@@ -34,8 +34,6 @@ ActiveRecord::Schema.define(version: 2022_02_15_042226) do
     t.integer "entry_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "entries_id"
-    t.index ["entries_id"], name: "index_course_results_on_entries_id"
   end
 
   create_table "courses", force: :cascade do |t|
