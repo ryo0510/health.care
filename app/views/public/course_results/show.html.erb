@@ -1,12 +1,12 @@
 <h3 class="title">
   <i class="fas fa-angle-double-left"></i><%= @course_result.entry.course.name %><i class="fas fa-angle-double-right"></i>コース結果登録
 </h3>
-	<div class="row">
-	  <div class="col-6 col-md-4">
+<div class="row">
+  <div class="col-6 col-md-4">
     <%= form_with(model:[@course_result, @history], local: true) do |f| %>
       <div class="form_group pt-4 pb-3">
         <% if @course_result.entry.course.way == "sign" %>
-        <%= f.radio_button :result, true, checked: true %>
+          <%= f.radio_button :result, true, checked: true %>
           <%= f.label :result, "実施できた", value: true %>
         <% else %>
           <%= f.number_field :result, step: "0.1", class: "form-control", placeholder: "小数点第1位まで可" %>kg
@@ -18,60 +18,25 @@
       <div class="form-group" >
         <%= f.text_area :memo, class: "form-control", placeholder: "メモ(空欄可)" %>
       </div>
-  <div class="mb-3">
-    <%= f.submit "結果登録", class: "btn btn-outline-primary" %>
+      <div class="mb-3">
+        <%= f.submit "結果登録", class: "btn btn-outline-primary" %>
+      </div>
+    <% end %>
+    <h4>
+      <div class="alert alert-warning" role="alert">
+        <%= @course_result.entry.course.target_date %>日中、<strong><%= @course_result.histories.count %>日</strong>クリア
+      </div>
+　  </h4>
   </div>
-   <% end %>
-  <h4>
-   <div class="alert alert-warning" role="alert">
-     <%= @course_result.entry.course.target_date %>日中、<strong><%= @course_result.histories.count %>日</strong>クリア
-　 </div>
-　 </h4>
-</div>
-
-
- <div class="col-sm-6 col-md-8">
-		<%= month_calendar events: @course_result.histories do |date, histories| %>
-		  <%= date.day %>
-		  <% histories.each do |history| %>
-		    <div>
-		      <% if @course_result.entry.course.way == "sign" %>
-		       <i class="far fa-check-circle"></i>
-		      <% else %>
-		       <%= history.result %>kg
-		      <% end %>
-		    </div>
-		  <% end %>
-		<% end %>
+  <div class="calendar ol-sm-6 col-md-8">
+		<%= render "calendar", course_result: @course_result %>
 	</div>
 </div>
+
 <% if @histories.present? %>
-<table class="history table table-hover table-bordered">
-			<thead>
-				<tr class="table-secondary">
-					<th style="width:15%">結果登録日</th>
-					<th style="width:15%">結果</th>
-					<th style="width:60%">メモ</th>
-					<th style="width:10%"></th>
-				</tr>
-		  </thead>
-			<%  @histories.each do |history| %>
-				<tbody>
-					<tr>
-						<td><%= history.start_time.strftime("%Y-%m-%d") %></td>
-						<% if @course_result.entry.course.way == "sign" %>
-		       <td>◯</td>
-		      <% else %>
-		       <td><%= history.result %>kg</td>
-		      <% end %>
-						<td><%= history.memo %></td>
-						<td><%= link_to "削除", course_result_history_path(history.course_result, history), method: :delete, class:"btn btn-outline-danger" %></td>
-					</tr>
-				</tbody>
-			<% end %>
-  		</table>
-  		<%= paginate @histories %>
-  		<% end %>
+  <%= render "history" %>
+<% end %>
+
 <% if @course_result.entry.course.way == "number" %>
 <canvas id="myLineChart"></canvas>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -118,6 +83,6 @@
           },
         }
       });
- });
+    });
   </script>
 <% end %>

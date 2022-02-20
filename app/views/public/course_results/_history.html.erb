@@ -1,0 +1,25 @@
+<table class="history table table-hover table-bordered">
+	<thead>
+		<tr class="table-secondary">
+			<th style="width:15%">結果登録日</th>
+			<th style="width:15%">結果</th>
+			<th style="width:60%">メモ</th>
+			<th style="width:10%"></th>
+		</tr>
+		</thead>
+		<% @histories.each do |history| %>
+			<tbody>
+				<tr>
+					<td><%= history.start_time.strftime("%Y-%m-%d") %></td>
+					<% if @course_result.entry.course.way == "sign" %>
+						<td>◯</td>
+		      <% else %>
+		        <td><%= history.result %>kg</td>
+		      <% end %>
+					<td><%= history.memo %></td>
+					<td><%= link_to "削除", course_result_history_path(history.course_result, history), method: :delete, class:"btn btn-outline-danger" %></td>
+				</tr>
+			</tbody>
+		<% end %>
+  </table>
+  <%= paginate @histories %>

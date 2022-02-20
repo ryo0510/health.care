@@ -1,0 +1,12 @@
+<%= month_calendar events: course_result.histories do |date, histories| %>
+		  <%= date.day %>
+		  <% histories.each do |history| %>
+		    <div>
+		      <% if course_result.entry.course.way == "sign" %>
+		       <i class="far fa-check-circle"></i>
+		      <% else %>
+		       <%= history.result %>kg
+		      <% end %>
+		    </div>
+		  <% end %>
+		<% end %>
