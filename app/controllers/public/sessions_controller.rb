@@ -3,8 +3,7 @@
 class Public::SessionsController < Devise::SessionsController
   before_action :customer_state, only: [:create]
   # before_action :configure_sign_in_params, only: [:create]
-　　
-　#ゲストログイン用アクション
+
   def guest_sign_in
     customer = Customer.guest
     sign_in customer
