@@ -1,6 +1,16 @@
 
 ja:
   activerecord:
+    models:
+      customer: 会員
+    attributes:
+      customer:
+        last_name: 名前(性)
+        first_name: 名前(名)
+        last_name_kana: フリガナ(セイ)
+        first_name_kana: フリガナ(メイ)
+        tel: 電話番号
+        address: 住所
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'

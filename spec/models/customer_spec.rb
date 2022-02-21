@@ -4,7 +4,7 @@ RSpec.describe 'Customerモデルのテスト', type: :model do
   describe 'バリデーションのテスト' do
     subject { customer.valid? }
 
-    let!(:other_customer) { create(:customer) } #letは遅延評価。定義時に処理は実行されず、呼び出されたタイミングで始めて処理を実行。
+    let!(:other_customer) { create(:customer) } #let!は事前評価。各コード実行前に評価、実行される。
     let(:customer) { build(:customer) } #letは遅延評価。定義時に処理は実行されず、呼び出されたタイミングで始めて処理を実行。
 
     context 'last_nameカラム' do
