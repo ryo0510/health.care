@@ -1,5 +1,5 @@
 // jquery書きはじめ
-$(function (){
+$(document).on('turbolinks:load', function () {
   // 処理（ページが読み込まれた時、フォームに残り何文字入力できるかを数えて表示する）
 
   //フォームに入力されている文字数を数える
