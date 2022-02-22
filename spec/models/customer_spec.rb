@@ -10,7 +10,7 @@ RSpec.describe 'Customerモデルのテスト', type: :model do
     context 'last_nameカラム' do
       it '空欄でないこと' do
         customer.last_name = ''
-        is_expected.to eq false
+        expect(subject).to eq false
       end
     end
 
@@ -26,6 +26,10 @@ RSpec.describe 'Customerモデルのテスト', type: :model do
         customer.last_name_kana = ''
         is_expected.to eq false
       end
+      it 'カタカナであれば登録できる' do
+        customer.last_name_kana = 'カナ'
+        is_expected.to eq true
+      end
       it 'カタカナ以外は登録できないこと' do
         customer.last_name_kana = 'あああ'
         is_expected.to eq false
@@ -37,10 +41,10 @@ RSpec.describe 'Customerモデルのテスト', type: :model do
         customer.first_name_kana = ''
         is_expected.to eq false
       end
-      # it 'カタカナであれば登録できる' do
-      #   customer.first_name_kana = 'person.first.katakana'
-      #   is_expected.to eq true
-      # end
+      it 'カタカナであれば登録できる' do
+        customer.first_name_kana = 'カナ'
+        is_expected.to eq true
+      end
       it 'カタカナ以外は登録できないこと' do
         customer.first_name_kana = 'あああ'
         is_expected.to eq false
