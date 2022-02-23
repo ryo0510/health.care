@@ -5,17 +5,11 @@ class Public::HistoriesController < ApplicationController
     course_result = CourseResult.find(params[:course_result_id])
     history = current_customer.histories.new(history_params)
     history.course_result_id = course_result.id
-
-    @course_result = CourseResult.find(params[:course_result_id])
-    @history = History.new
-    @histories = @course_result.histories.order("start_time DESC").page(params[:page]).per(5)
-    Date.beginning_of_week = :sunday #日曜日から始まり(カレンダー)
-
     if history.save
       redirect_to course_result_path(course_result)
     else
-      flash.now[:alert] = "既に登録されている日付です"
-      render 'public/course_results/show'
+      # renderだと、エラーメッセージ表示後にカレンダーの前月、次月を押すとエラーになる。他にやり方がある？
+      redirect_to course_result_path(course_result)
     end
   end
 
