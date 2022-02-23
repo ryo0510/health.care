@@ -1,9 +1,9 @@
 <header class="shadow-sm">
   <nav class="navbar navbar-expand-lg navbar-light">
-    
+
     <div class="logo">
       <% if admin_signed_in? %>
-        <%= link_to admin_root_path do %>
+        <%= link_to admin_top_path do %>
           <%= image_tag 'logo.png', :size =>'100x100'%>
         <% end %>
       <% else %>
@@ -12,10 +12,10 @@
         <% end %>
       <% end %>
     </div>
-    
+
     <div class="collapse navbar-collapse justify-content-end">
       <ul class="navbar-nav">
-        
+
         <% if customer_signed_in? %>
           <li class="nav-item">
             <%= link_to icon('fas','fas fa-user',"マイページ"), customers_mypage_path, class: "btn btn-outline-light mx-3 my-1"%>
@@ -42,7 +42,7 @@
           <li class="nav-item">
             <%= link_to icon('fas','sign-out-alt',"ログアウト"), destroy_customer_session_path, method: :delete ,class: 'btn btn-outline-light mx-3 my-1'%>
           </li>
-          
+
         <% elsif admin_signed_in? %>
           <li class="nav-item">
             <%= link_to icon('fas','user-circle',"会員一覧"), admin_top_path, class:'btn btn-outline-light mx-3 my-1'%>
@@ -57,7 +57,7 @@
             <%= link_to icon('fas','sign-out-alt',"ログアウト"),destroy_admin_session_path, method: :delete,class: 'btn btn-outline-light mx-3 my-1'%>
           </li>
         <% else %>
-        
+
           <li class="nav-item">
             <%= link_to icon('fas','user-plus',"新規登録"), new_customer_registration_path,class: 'btn btn-outline-light mx-3 my-1'%>
           </li>
@@ -68,7 +68,7 @@
             <%= link_to icon('fas','fas fa-clipboard-list',"コース一覧"), courses_path, class:'btn btn-outline-light mx-3 my-1'%>
           </li>
         <% end %>
-        
+
       </ul>
     </div>
     <div class="search">
