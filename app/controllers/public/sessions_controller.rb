@@ -28,7 +28,7 @@ class Public::SessionsController < Devise::SessionsController
 
   protected
   
-  def check_customer #複数のモデルで同時にログイン出来ないようにチェックするメソッド
+  def check_customer # 複数のモデルで同時にログイン出来ないようにチェックするメソッド
     if current_admin
       flash[:alert] = '管理者として既にログインしています。ログアウトしてください。'
       redirect_to root_path
