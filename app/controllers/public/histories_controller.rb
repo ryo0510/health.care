@@ -1,6 +1,6 @@
 class Public::HistoriesController < ApplicationController
   before_action :authenticate_customer!
-  
+
   def create
     course_result = CourseResult.find(params[:course_result_id])
     history = current_customer.histories.new(history_params)

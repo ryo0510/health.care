@@ -11,9 +11,9 @@ class Admin::CustomersController < ApplicationController
 
   def update
     if @customer.update(customer_params)
-      redirect_to admin_customer_path(@customer), notice: "登録情報を更新しました"
+      redirect_to admin_customer_path(@customer), notice: '登録情報を更新しました'
     else
-      render "edit"
+      render 'edit'
     end
   end
 
@@ -29,8 +29,6 @@ class Admin::CustomersController < ApplicationController
 
   def ensure_guest_customer
     @customer = Customer.find(params[:id])
-    if @customer.email == "guest@example.com"
-      redirect_to admin_customer_path(@customer) , alert: 'ゲストユーザーはプロフィール編集画面へ遷移できません。'
-    end
+    redirect_to admin_customer_path(@customer), alert: 'ゲストユーザーはプロフィール編集画面へ遷移できません。' if @customer.email == 'guest@example.com'
   end
 end

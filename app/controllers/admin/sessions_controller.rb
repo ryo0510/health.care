@@ -4,7 +4,7 @@ class Admin::SessionsController < Devise::SessionsController
   before_action :check_admin, only: [:create, :guest_sign_in]
   # before_action :configure_sign_in_params, only: [:create]
 
-  #ゲストログイン用アクション
+  # ゲストログイン用アクション
   def guest_sign_in
     admin = Admin.guest
     sign_in admin
@@ -28,7 +28,7 @@ class Admin::SessionsController < Devise::SessionsController
 
   protected
 
-  def check_admin  # 複数のモデルで同時にログイン出来ないようにチェックするメソッド
+  def check_admin # 複数のモデルで同時にログイン出来ないようにチェックするメソッド
     if current_customer
       flash[:alert] = 'ユーザーとして既にログインしています。ログアウトしてください。'
       redirect_to root_path
@@ -40,12 +40,11 @@ class Admin::SessionsController < Devise::SessionsController
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
 
-  def after_sign_in_path_for(resource)
+  def after_sign_in_path_for(_resource)
     admin_top_path
   end
 
-  def after_sign_out_path_for(resource)
+  def after_sign_out_path_for(_resource)
     new_admin_session_path
   end
-
 end
