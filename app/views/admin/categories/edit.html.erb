@@ -3,6 +3,9 @@
   　<h4><i class="fas fa-tag"></i>カテゴリー編集</h4>
 　</div>
 </div>
+
+<%= render 'layouts/error_messages', resource: @category %>
+
 <div class="row">
   <div class="col-8 mt-3">
     <%= form_with model: @category, url: admin_category_path, local: true do |f| %>
