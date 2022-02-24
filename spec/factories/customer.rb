@@ -7,8 +7,8 @@ FactoryBot.define do
     last_name { person.last.kanji }
     first_name_kana { person.first.katakana }
     last_name_kana { person.last.katakana }
-    tel { '01234567890' }
-    address { '熊本県熊本市一丁目' }
+    tel { Faker::Number.number(digits: 11) }
+    address { Faker::Address.full_address }
     email { Faker::Internet.email }
     password { 'password' }
     password_confirmation { 'password' }

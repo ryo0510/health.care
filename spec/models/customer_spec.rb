@@ -67,6 +67,14 @@ RSpec.describe 'Customerモデルのテスト', type: :model do
         customer.tel = ''
         expect(subject).to eq false
       end
+      it '数字以外は登録できなこと' do
+        customer.tel = Faker::Lorem.characters(number: 10)
+        expect(subject).to eq false
+      end
+      it '数字は登録できること' do
+        customer.tel = '012333333'
+        expect(subject).to eq true
+      end
     end
 
     context 'emailカラム' do
@@ -78,6 +86,32 @@ RSpec.describe 'Customerモデルのテスト', type: :model do
       it '一意性があること' do
         customer.email = other_customer.email
         expect(subject).to eq false
+      end
+    end
+  end
+  
+  describe 'アソシエーションのテスト' do
+    context 'PostMessageモデルとの関係' do
+      it '1:Nとなっている' do
+        expect(Customer.reflect_on_association(:post_messages).macro).to eq :has_many
+      end
+    end
+    
+    context 'Favoritesモデルとの関係' do
+      it '1:Nとなっている' do
+        expect(Customer.reflect_on_association(:favorites).macro).to eq :has_many
+      end
+    end
+    
+    context 'Entryモデルとの関係' do
+      it '1:Nとなっている' do
+        expect(Customer.reflect_on_association(:entries).macro).to eq :has_many
+      end
+    end
+    
+    context 'Historyモデルとの関係' do
+      it '1:Nとなっている' do
+        expect(Customer.reflect_on_association(:histories).macro).to eq :has_many
       end
     end
   end
