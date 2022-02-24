@@ -26,29 +26,25 @@ RSpec.describe 'Customerモデルのテスト', type: :model do
         customer.last_name_kana = ''
         expect(subject).to eq false
       end
-
-      it 'カタカナであれば登録できる' do
+      it 'カタカナであれば登録できること' do
         customer.last_name_kana = 'カナ'
         expect(subject).to eq true
       end
-
       it 'カタカナ以外は登録できないこと' do
         customer.last_name_kana = 'あああ'
         expect(subject).to eq false
       end
     end
-
+    
     context 'first_name_kanaカラム' do
       it '空欄でないこと' do
         customer.first_name_kana = ''
         expect(subject).to eq false
       end
-
-      it 'カタカナであれば登録できる' do
+      it 'カタカナであれば登録できること' do
         customer.first_name_kana = 'カナ'
         expect(subject).to eq true
       end
-
       it 'カタカナ以外は登録できないこと' do
         customer.first_name_kana = 'あああ'
         expect(subject).to eq false
@@ -82,7 +78,6 @@ RSpec.describe 'Customerモデルのテスト', type: :model do
         customer.email = ''
         expect(subject).to eq false
       end
-
       it '一意性があること' do
         customer.email = other_customer.email
         expect(subject).to eq false
