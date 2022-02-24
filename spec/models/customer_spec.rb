@@ -35,7 +35,7 @@ RSpec.describe 'Customerモデルのテスト', type: :model do
         expect(subject).to eq false
       end
     end
-    
+
     context 'first_name_kanaカラム' do
       it '空欄でないこと' do
         customer.first_name_kana = ''
@@ -84,30 +84,49 @@ RSpec.describe 'Customerモデルのテスト', type: :model do
       end
     end
   end
-  
+
   describe 'アソシエーションのテスト' do
     context 'PostMessageモデルとの関係' do
       it '1:Nとなっている' do
         expect(Customer.reflect_on_association(:post_messages).macro).to eq :has_many
       end
     end
-    
+
     context 'Favoritesモデルとの関係' do
       it '1:Nとなっている' do
         expect(Customer.reflect_on_association(:favorites).macro).to eq :has_many
       end
     end
-    
+
     context 'Entryモデルとの関係' do
       it '1:Nとなっている' do
         expect(Customer.reflect_on_association(:entries).macro).to eq :has_many
       end
     end
-    
+
     context 'Historyモデルとの関係' do
       it '1:Nとなっている' do
         expect(Customer.reflect_on_association(:histories).macro).to eq :has_many
       end
     end
   end
+
+  describe 'メソッドのテスト' do
+    context '姓、名が登録されている場合' do
+      let(:customer) { build(:customer) }
+
+      it '性名が取得できること' do
+        customer.last_name = '河野'
+        customer.first_name = '太郎'
+        expect(customer.full_name).to eq '河野 太郎'
+      end
+
+       it '性名(カナ)が取得できること' do
+        customer.last_name_kana = 'カワノ'
+        customer.first_name_kana = 'タロウ'
+        expect(customer.full_name_kana).to eq 'カワノ タロウ'
+      end
+    end
+  end
+  
 end
