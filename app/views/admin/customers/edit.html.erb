@@ -4,6 +4,8 @@
 　</div>
 </div>
 
+<%= render 'layouts/error_messages', resource: @customer %>
+
 <div class="row ml-4 mt-3">
   <%= form_with model: @customer, url: admin_customer_path(@customer), local: true do |f| %>
     <div class="form-group row">

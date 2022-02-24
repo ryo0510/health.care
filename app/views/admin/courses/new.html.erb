@@ -4,6 +4,8 @@
 　</div>
 </div>
 
+<%= render 'layouts/error_messages', resource: @course %>
+
 <div class="row">
   <div class="col-8 offset-2 md-5">
      <%= form_with model: [:admin, @course], local:true do |f| %>

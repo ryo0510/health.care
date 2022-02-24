@@ -13,6 +13,11 @@ ja:
         address: 住所
       category:
         name: カテゴリー名
+      course:
+        name: コース名
+        category: カテゴリー名
+        working_item: 実施項目
+        target_date: 目標日数
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'

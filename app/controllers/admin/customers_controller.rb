@@ -11,9 +11,8 @@ class Admin::CustomersController < ApplicationController
 
   def update
     if @customer.update(customer_params)
-      redirect_to admin_customer_path(@customer)
+      redirect_to admin_customer_path(@customer), notice: "登録情報を更新しました"
     else
-      flash.now[:alert] = "入力内容をご確認ください"
       render "edit"
     end
   end

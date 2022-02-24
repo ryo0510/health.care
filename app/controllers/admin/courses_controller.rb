@@ -22,11 +22,9 @@ class Admin::CoursesController < ApplicationController
   def create
     @course = Course.new(course_params)
     if @course.save
-      flash.now[:notice] = "コースを追加しました。"
-      redirect_to admin_course_path(@course)
+      redirect_to admin_course_path(@course), notice: "コースを登録しました"
     else
-      flash.now[:alert] = "入力内容をご確認ください"
-      render :new
+      render "new"
     end
   end
 
@@ -38,11 +36,9 @@ class Admin::CoursesController < ApplicationController
 
   def update
     if @course.update(course_params)
-      flash.now[:notice] = "編集内容を更新しました。"
-      redirect_to admin_course_path(@course)
+      redirect_to admin_course_path(@course), notice: "登録情報を更新しました"
     else
-      flash.now[:alert] = "入力内容を確認してください。"
-      render :edit
+      render "edit"
     end
   end
 
