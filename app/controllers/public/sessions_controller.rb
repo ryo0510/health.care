@@ -27,7 +27,7 @@ class Public::SessionsController < Devise::SessionsController
   # end
 
   protected
-  
+
   def check_customer # 複数のモデルで同時にログイン出来ないようにチェックするメソッド
     if current_admin
       flash[:alert] = '管理者として既にログインしています。ログアウトしてください。'
@@ -40,7 +40,7 @@ class Public::SessionsController < Devise::SessionsController
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
 
-  def after_sign_in_path_for(resource)
+  def after_sign_in_path_for(_resource)
     root_path
   end
 

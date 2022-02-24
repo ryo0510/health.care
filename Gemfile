@@ -42,7 +42,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem "factory_bot_rails"
   gem 'faker'
-  gem 'gimei' #ランダムで漢字やカタカナ生成
+  gem 'gimei' # ランダムで漢字やカタカナ生成
 end
 
 group :development do

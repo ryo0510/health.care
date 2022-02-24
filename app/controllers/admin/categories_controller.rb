@@ -11,7 +11,7 @@ class Admin::CategoriesController < ApplicationController
     @categories = Category.all
     @category = Category.new(category_params)
     if @category.save
-      redirect_to admin_categories_path, notice: "登録が完了しました"
+      redirect_to admin_categories_path, notice: '登録が完了しました'
     else
       render :index
     end
@@ -22,7 +22,7 @@ class Admin::CategoriesController < ApplicationController
 
   def update
     if @category.update(category_params)
-      redirect_to admin_categories_path, notice: "登録情報を更新しました"
+      redirect_to admin_categories_path, notice: '登録情報を更新しました'
     else
       render :edit
     end
