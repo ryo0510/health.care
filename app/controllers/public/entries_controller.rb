@@ -15,8 +15,7 @@ class Public::EntriesController < ApplicationController
     #rejectで要素に空白があった場合、削除する
     entries = (params[:entry][:course_id]).compact.reject(&:empty?)
     if Entry.where(course_id: entries).where(customer_id: current_customer.id).count >= 1
-      flash.now[:alert] = "登録済みのコースが含まれていた為、登録できませんでした。"
-      render "new"
+      redirect_to new_entry_path, alert: '登録済みのコースが含まれています'
       return
     end
 
