@@ -1,5 +1,5 @@
 <% if post_message.favorited_by?(current_customer) %>
-  <%= link_to post_message.favorites.count, post_message_favorites_path(post_message), method: :delete, remote: true, class: "fas fa-heart heart_red" %>
+  <%= link_to post_message.favorites.count, post_message_favorites_path(post_message), method: :delete, remote: true, class: "fas fa-heart" %>
 <% else %>
-  <%= link_to post_message.favorites.count, post_message_favorites_path(post_message), method: :post, remote: true, class: "fas fa-heart heart_blue" %>
+  <%= link_to post_message.favorites.count, post_message_favorites_path(post_message), method: :post, remote: true, class: "far fa-heart" %>
 <% end %>
