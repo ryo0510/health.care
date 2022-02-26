@@ -1,4 +1,6 @@
 <%= form_with url: search_courses_path, local: true, method: :get do |f| %>
-  <%= f.text_field :keyword, placeholder:"コース名" %>
-  <%= f.submit "検索", class: "btn btn-outline-light " %>
+  <%= f.text_field :keyword, placeholder:"コース名", class: "search_input" %>
+  <%= f.button :type => "submit",  :class => "search_submit" do %>
+    <i class="fas fa-search" aria-hidden="true"></i>
+  <% end %>
 <% end %>
