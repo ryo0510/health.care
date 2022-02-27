@@ -3,9 +3,8 @@ $(document).on('turbolinks:load', function () {
   //フォームに入力されている文字数を数える
   //\nは"改行"に変換して2文字にする。オプションフラグgで文字列の最後まで\nを探し変換する
   var count = $(".js-text").text().replace(/\n/g, "改行").length;
-  //残りの入力できる文字数を計算
   var now_count = 140 - count;
-  //文字数がオーバーしていたら文字色を赤にする
+
   if (count > 140) {
     $(".js-text-count").css("color","red");
   }
