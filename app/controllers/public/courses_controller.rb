@@ -1,11 +1,9 @@
 class Public::CoursesController < ApplicationController
   def index
-    # urlにcategory_id(params)がある場合
     if params[:category_id]
       @category = Category.find(params[:category_id])
       @courses = @category.courses.order(created_at: :desc).all
     else
-      # コースすべてを取得
       @courses = Course.order(created_at: :desc).all
     end
   end

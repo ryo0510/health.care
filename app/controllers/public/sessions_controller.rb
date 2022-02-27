@@ -28,7 +28,7 @@ class Public::SessionsController < Devise::SessionsController
 
   protected
 
-  def check_customer # 複数のモデルで同時にログイン出来ないようにチェックするメソッド
+  def check_customer 
     if current_admin
       flash[:alert] = '管理者として既にログインしています。ログアウトしてください。'
       redirect_to root_path
@@ -45,8 +45,8 @@ class Public::SessionsController < Devise::SessionsController
   end
 
   def customer_state # 退会しているかを判断するメソッド
-    @customer = Customer.find_by(email: params[:customer][:email]) ##入力されたemailからアカウントを1件取得
-    return if !@customer ## アカウントを取得できなかった場合、このメソッドを終了する
+    @customer = Customer.find_by(email: params[:customer][:email]) 
+    return if !@customer
     if (@customer.valid_password?(params[:customer][:password])) && (@customer.is_deleted == true)
       flash[:alert] = "このアカウントは退会済みです。新規登録を行ってください。"
       redirect_to new_customer_registration_path

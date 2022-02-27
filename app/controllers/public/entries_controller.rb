@@ -3,8 +3,6 @@ class Public::EntriesController < ApplicationController
 
   def new
     @entry = Entry.new
-
-    #ランキング(モデルにメソッド記載)
     @all_ranks = Course.create_all_ranks
   end
 
@@ -12,16 +10,16 @@ class Public::EntriesController < ApplicationController
     @entry = Entry.new
     @all_ranks = Course.create_all_ranks
 
-    #rejectで要素に空白があった場合、削除する
+    # 要素に空白がなぜかできてしまう為、reject使用し空白削除
     entries = (params[:entry][:course_id]).compact.reject(&:empty?)
     if Entry.where(course_id: entries).where(customer_id: current_customer.id).count >= 1
       redirect_to new_entry_path, alert: '登録済みのコースが含まれています'
       return
     end
 
-    #rejectで要素に空白があった場合、削除する
+    # 要素に空白がなぜかできてしまう為、reject使用し空白削除
     converted_create_params = create_params[:course_id].reject { |v| v.empty? }.map(&:to_i)
-    #データの一貫性を保つためトランザクション使用(どちらかの処理に異常があった場合、処理を中断しデータを保存しない)
+    # データの一貫性を保つためトランザクション使用(どちらかの処理に異常があった場合、処理を中断しデータを保存しない)
     ActiveRecord::Base.transaction do
       converted_create_params.each do |course_id|
         entry = current_customer.entries.create!(course_id: course_id)
