@@ -44,7 +44,7 @@ RSpec.describe 'PostMessageモデルのテスト', type: :model do
         expect(PostMessage.reflect_on_association(:customer).macro).to eq :belongs_to
       end
     end
-    
+
     context 'Favoriteモデルとの関係' do
       it '1:Nとなっている' do
         expect(PostMessage.reflect_on_association(:favorites).macro).to eq :has_many
