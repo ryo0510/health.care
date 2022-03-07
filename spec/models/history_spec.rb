@@ -5,7 +5,10 @@ RSpec.describe 'Historyモデルのテスト', type: :model do
     subject { history.valid? }
 
     let(:customer) { create(:customer) }
-    let!(:post_message) { build(:post_message, customer_id: customer.id) }
+    let(:course) { create(:course, category_id: category.id) }
+    let(:entry) { create(:entry, customer_id: customer.id, course_id: course.id) }
+    let(:course_result) { create(:course_result, entry_id: entry.id) }
+    let!(:history) { build(:history, customer_id: customer.id, course_result_id: course_result.id) }
 
     context 'resultカラム' do
       it '空欄でないこと' do
