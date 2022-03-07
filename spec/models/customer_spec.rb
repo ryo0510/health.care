@@ -63,7 +63,7 @@ RSpec.describe 'Customerモデルのテスト', type: :model do
         customer.tel = ''
         expect(subject).to eq false
       end
-      it '数字以外は登録できなこと' do
+      it '数字以外は登録できないこと' do
         customer.tel = Faker::Lorem.characters(number: 10)
         expect(subject).to eq false
       end
