@@ -5,6 +5,7 @@ RSpec.describe 'Historyモデルのテスト', type: :model do
     subject { history.valid? }
 
     let(:customer) { create(:customer) }
+    let(:category) { create(:category) }
     let(:course) { create(:course, category_id: category.id) }
     let(:entry) { create(:entry, customer_id: customer.id, course_id: course.id) }
     let(:course_result) { create(:course_result, entry_id: entry.id) }
@@ -12,18 +13,18 @@ RSpec.describe 'Historyモデルのテスト', type: :model do
 
     context 'resultカラム' do
       it '空欄でないこと' do
-        history.name = ''
+        history.result = ''
         expect(subject).to eq false
       end
     end
 
     context 'memoカラム' do
       it '140文字以下であること: 140文字は〇' do
-        post_message.message = Faker::Lorem.characters(number: 140)
+        history.memo = Faker::Lorem.characters(number: 140)
         is_expected.to eq true
       end
       it '140文字以下であること: 141文字は×' do
-        post_message.message = Faker::Lorem.characters(number: 141)
+        history.memo = Faker::Lorem.characters(number: 141)
         is_expected.to eq false
       end
     end
