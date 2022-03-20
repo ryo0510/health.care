@@ -78,6 +78,27 @@ describe '[STEP1] 会員ログイン前のテスト' do
         expect(page).to have_button '新規登録'
       end
     end
+
+    context '新規登録成功のテスト' do
+      before do
+        fill_in 'customer[last_name]', with: '山田'
+        fill_in 'customer[first_name]', with: '太郎'
+        fill_in 'customer[last_name_kana]', with: 'ヤマダ'
+        fill_in 'customer[first_name_kana]', with: 'タロウ'
+        fill_in 'customer[email]', with: Faker::Internet.email
+        fill_in 'customer[tel]', with: Faker::Number.number(digits: 11)
+        fill_in 'customer[address]', with: Faker::Address.full_address
+        fill_in 'customer[password]', with: 'password'
+        fill_in 'customer[password_confirmation]', with: 'password'
+      end
+      it '正しく新規登録される' do
+        expect { click_button '新規登録' }.to change { Customer.count }.by(1)
+      end
+      it '新規登録後のリダイレクト先が、新規登録できたユーザの詳細画面になっている' do
+        click_button '新規登録'
+        expect(current_path).to eq '/customers/mypage'
+      end
+    end
   end
 
 
