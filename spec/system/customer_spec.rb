@@ -101,5 +101,66 @@ describe '[STEP1] 会員ログイン前のテスト' do
     end
   end
 
+  describe 'ユーザログイン' do
+    let(:customer) { create(:customer) }
+
+    before do
+      visit new_customer_session_path
+    end
+
+    context '表示内容の確認' do
+      it 'URLが正しい' do
+        expect(current_path).to eq '/customers/sign_in'
+      end
+      it '「ログイン」と表示される' do
+        expect(page).to have_content 'ログイン'
+      end
+      it '「ゲストログイン（閲覧用）」と表示される' do
+        expect(page).to have_content 'ゲストログイン（閲覧用）'
+      end
+      it 'emailフォームが表示される' do
+        expect(page).to have_field 'customer[email]'
+      end
+      it 'passwordフォームが表示される' do
+        expect(page).to have_field 'customer[password]'
+      end
+      it 'ログインボタンが表示される' do
+        expect(page).to have_button 'ログイン'
+      end
+    end
+
+    context 'ログイン成功のテスト' do
+      before do
+        fill_in 'customer[email]', with: customer.email
+        fill_in 'customer[password]', with: customer.password
+        click_button 'ログイン'
+      end
+
+      it 'ログイン後のリダイレクト先が、トップページになっている' do
+        expect(current_path).to eq '/'
+      end
+    end
+
+    # context 'ゲストログイン成功のテスト' do
+    #   it 'ログイン後のリダイレクト先が、トップページになっている' do
+    #     expect(page).to have_link 'ゲストログイン（閲覧用）', href: customers_guest_sign_in_path
+    #     click_link 'ゲストログイン（閲覧用）', href: customers_guest_sign_in_path
+    #     is_expected.to eq '/'
+    #   end
+    # end
+
+    context 'ログイン失敗のテスト' do
+      before do
+        fill_in 'customer[email]', with: ''
+        fill_in 'customer[password]', with: ''
+        click_button 'ログイン'
+      end
+
+      it 'ログインに失敗し、ログイン画面にリダイレクトされる' do
+        expect(current_path).to eq '/customers/sign_in'
+      end
+    end
+  end
+
 
 end
