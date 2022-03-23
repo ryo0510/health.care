@@ -35,7 +35,7 @@ describe '[STEP1] 会員ログイン前のテスト' do
     end
   end
 
-  describe 'ユーザ新規登録のテスト' do
+  describe '会員新規登録' do
     before do
       visit new_customer_registration_path
     end
@@ -101,7 +101,7 @@ describe '[STEP1] 会員ログイン前のテスト' do
     end
   end
 
-  describe 'ユーザログイン' do
+  describe 'ログイン' do
     let(:customer) { create(:customer) }
 
     before do
@@ -158,6 +158,27 @@ describe '[STEP1] 会員ログイン前のテスト' do
 
       it 'ログインに失敗し、ログイン画面にリダイレクトされる' do
         expect(current_path).to eq '/customers/sign_in'
+      end
+    end
+  end
+
+  describe 'ログアウトのテスト' do
+    let(:customer) { create(:customer) }
+
+    before do
+      visit new_customer_session_path
+      fill_in 'customer[email]', with: customer.email
+      fill_in 'customer[password]', with: customer.password
+      click_button 'ログイン'
+    end
+
+    context 'ログアウト機能のテスト' do
+      it '正しくログアウトできている' do
+        expect(page).to have_link 'ログアウト', href: destroy_customer_session_path
+        click_link 'ログアウト', href: destroy_customer_session_path
+      end
+      it 'ログアウト後のリダイレクト先が、トップになっている' do
+        expect(current_path).to eq '/'
       end
     end
   end
