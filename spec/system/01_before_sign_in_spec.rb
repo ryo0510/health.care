@@ -182,6 +182,4 @@ describe '[STEP1] 会員ログイン前のテスト' do
       end
     end
   end
-
-
 end
