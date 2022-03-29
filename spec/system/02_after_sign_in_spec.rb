@@ -56,4 +56,19 @@ describe '[STEP2] 会員ログイン後のテスト' do
       end
     end
   end
+  
+   describe '自分のユーザ詳細画面のテスト' do
+    before do
+      visit customers_mypage_path
+    end
+
+    context '表示の確認' do
+      it 'URLが正しい' do
+        expect(current_path).to eq '/customers/mypage'
+      end
+      it '自分の会員情報編集リンク先が正しい' do
+        expect(page).to have_link '編集する', href: customers_mypage_edit_path
+      end
+    end
+  end
 end
