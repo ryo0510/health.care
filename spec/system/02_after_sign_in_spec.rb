@@ -56,8 +56,8 @@ describe '[STEP2] 会員ログイン後のテスト' do
       end
     end
   end
-  
-   describe '自分のユーザ詳細画面のテスト' do
+
+  describe '自分のユーザ詳細画面のテスト' do
     before do
       visit customers_mypage_path
     end
@@ -68,6 +68,35 @@ describe '[STEP2] 会員ログイン後のテスト' do
       end
       it '自分の会員情報編集リンク先が正しい' do
         expect(page).to have_link '編集する', href: customers_mypage_edit_path
+      end
+    end
+  end
+
+  describe '掲示板画面のテスト' do
+    before do
+      visit post_messages_path
+    end
+
+    context '表示の確認' do
+      it 'URLが正しい' do
+        expect(current_path).to eq '/post_messages'
+      end
+      it 'ニックネーム入力フォームが表示される' do
+        expect(page).to have_field 'post_message[nickname]'
+      end
+      it 'メッセージ入力フォームが表示される' do
+        expect(page).to have_field 'post_message[message]'
+      end
+    end
+
+    context '投稿成功のテスト' do
+      before do
+        fill_in 'post_message[nickname]', with: Faker::Lorem.characters(number: 5)
+        fill_in 'post_message[message]', with: Faker::Lorem.characters(number: 20)
+      end
+
+      it '自分の新しい投稿が正しく保存される' do
+        expect { click_button '新規投稿' }.to change { PostMessage.count }.by(1)
       end
     end
   end
