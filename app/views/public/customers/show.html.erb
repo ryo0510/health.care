@@ -9,6 +9,7 @@
   <% if !(@customer.email == "guest@example.com") %>
     <p><%= link_to "編集する",  customers_mypage_edit_path, class: "btn btn-outline-success ml-5" %></p>
   <% end %>
+  <p><%= link_to "登録コース一覧",  entries_path, class: "btn btn-outline-primary ml-5" %></p>
   <table class="table">
     <tbody>
       <tr>
