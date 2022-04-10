@@ -30,7 +30,7 @@ Rails.application.routes.draw do
     get 'customers/mypage/edit' => 'customers#edit'
     patch 'customers/update' => 'customers#update'
 
-    resources :post_messages, only: [:index, :create] do
+    resources :post_messages, only: [:index, :create, :edit, :destroy] do
       resource :favorites, only: [:create, :destroy]
     end
     resources :courses, only: [:index, :show] do
