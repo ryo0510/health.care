@@ -13,6 +13,18 @@ class Public::PostMessagesController < ApplicationController
     @post_message.save
   end
 
+  def edit
+    @post_message = PostMessage.find(params[:id])
+  end
+
+  def destroy
+    post_message = PostMessage.find(params[:id])
+    post_message.destroy
+    redirect_to request.referer, notice: '削除しました'
+  end
+
+  private
+
   def post_message_params
     params.require(:post_message).permit(:nickname, :message, :image)
   end
