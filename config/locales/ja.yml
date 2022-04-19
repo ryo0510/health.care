@@ -18,6 +18,9 @@ ja:
         category: カテゴリー名
         working_item: 実施項目
         target_date: 目標日数
+      post_message:
+        nickname: ニックネーム
+        message: メッセージ
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
