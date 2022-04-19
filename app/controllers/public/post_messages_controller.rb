@@ -10,7 +10,9 @@ class Public::PostMessagesController < ApplicationController
     @post_messages = PostMessage.all.order(created_at: :desc).page(params[:page]).per(15)
     @post_message = PostMessage.new(post_message_params)
     @post_message.customer_id = current_customer.id
-    @post_message.save
+    unless @post_message.save
+      render 'error'
+    end
   end
 
   def edit
