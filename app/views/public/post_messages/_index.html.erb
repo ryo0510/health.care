@@ -5,5 +5,10 @@
     <td><%= post_message.created_at.strftime("%Y/%m/%d %H:%M:%S") %></td>
     <td class="text-center"><%= attachment_image_tag post_message, :image, :fill, 75, 75 %></td>
     <td class="favorite-btn"><%= render "public/favorites/favorite-btn", post_message: post_message %></td>
+    <td>
+      <% if post_message.customer == current_customer %>
+        <%= link_to "削除", post_message_path(post_message), method: :delete %>
+      <% end %>
+    </td>
   </tr>
 <% end %>
